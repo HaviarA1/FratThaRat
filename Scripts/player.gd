@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var gas: GPUParticles2D = $Gas
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -300.0
@@ -51,6 +52,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("dash"):
 		sprite_2d.animation = "run"
+		gas.emitting = false
+		gas.emitting = true
 		if is_left:
 			velocity.x = -500
 		else:

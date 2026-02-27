@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cdlgx0h8065m4" path="res://Assets/Textures/torch.png" id="1_wced7"]
 [ext_resource type="Script" uid="uid://bhk3ft6xrlwum" path="res://Scripts/torch.gd" id="2_beu3c"]
-[ext_resource type="Texture2D" uid="uid://t1e01i7a03bw" path="res://Assets/Textures/white_alpha.png" id="2_h1t0l"]
+[ext_resource type="Texture2D" uid="uid://bqvew2nupjms8" path="res://Assets/Textures/white_alpha/white_alpha.png" id="3_spjw2"]
 [ext_resource type="Texture2D" uid="uid://cxwveexpf3oiw" path="res://Assets/Textures/light_alpha.png" id="4_spjw2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1t0l"]
@@ -76,12 +76,13 @@ hue_variation_curve = SubResource("CurveTexture_7ufd5")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_7ufd5")
 autoplay = "default"
-frame_progress = 0.7846403
+frame_progress = 0.6171976
 script = ExtResource("2_beu3c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.94934934, 0.5576427, 0.28820735, 1)
-texture = ExtResource("2_h1t0l")
+blend_mode = 2
+texture = ExtResource("3_spjw2")
 texture_scale = 0.5
 
 [node name="Ashes" type="GPUParticles2D" parent="."]

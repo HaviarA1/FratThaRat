@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t1e01i7a03bw"
-path="res://.godot/imported/white_alpha.png-d2612175a0792460e62e4d56e59b75b6.ctex"
+uid="uid://bqvew2nupjms8"
+path="res://.godot/imported/white_alpha.png-5a66b4264003d21ea65f3feb56ac1b41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/white_alpha.png"
-dest_files=["res://.godot/imported/white_alpha.png-d2612175a0792460e62e4d56e59b75b6.ctex"]
+source_file="res://Assets/Textures/white_alpha/white_alpha.png"
+dest_files=["res://.godot/imported/white_alpha.png-5a66b4264003d21ea65f3feb56ac1b41.ctex"]
 
 [params]
 
