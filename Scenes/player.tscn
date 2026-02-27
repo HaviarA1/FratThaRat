@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://cw0xhyynu5w7x"]
+[gd_scene load_steps=21 format=3 uid="uid://cw0xhyynu5w7x"]
 
 [ext_resource type="Script" uid="uid://dkrqjc0v3doio" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b3i365o8rr4xf" path="res://Assets/Textures/krysa_bezici/krysa_bezici-Sheet.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cgd1oplx1orfn" path="res://Assets/Textures/krysa_stojici/krysa_stojici-Sheet.png" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://hm3qggti4bfq" path="res://Assets/Textures/plyny/plyny.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bqvew2nupjms8" path="res://Assets/Textures/white_alpha/white_alpha.png" id="5_fkybt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j60k"]
-size = Vector2(24, 18)
+size = Vector2(24, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("2_vgqql")
@@ -127,3 +128,14 @@ emitting = false
 texture = ExtResource("4_vgqql")
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_f1ek2")
+
+[node name="Ceiling" type="RayCast2D" parent="."]
+rotation = 3.1415927
+target_position = Vector2(0, 32)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(4, -6)
+color = Color(0.9755834, 1, 0.6735581, 1)
+energy = 0.3
+texture = ExtResource("5_fkybt")
+texture_scale = 0.2

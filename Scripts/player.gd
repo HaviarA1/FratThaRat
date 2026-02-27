@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var ceiling: RayCast2D = $Ceiling
+
+
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var gas: GPUParticles2D = $Gas
 
@@ -47,13 +50,15 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x -= 10
 	else:
-		sprite_2d.animation = "idle"
+		if not ceiling.is_colliding():
+			sprite_2d.animation = "idle"
 		velocity.x = 0	
 		
 	if Input.is_action_just_pressed("dash"):
 		sprite_2d.animation = "run"
 		gas.emitting = false
 		gas.emitting = true
+		velocity.y -= 200
 		if is_left:
 			velocity.x = -500
 		else:
