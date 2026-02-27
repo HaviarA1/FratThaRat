@@ -1,20 +1,139 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw0xhyynu5w7x"]
+[gd_scene load_steps=9 format=3 uid="uid://cw0xhyynu5w7x"]
 
 [ext_resource type="Script" uid="uid://dkrqjc0v3doio" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://cw78pih0o5i8b" path="res://Scripts/whole_player.gd" id="1_vgqql"]
 [ext_resource type="Texture2D" uid="uid://b5npq3s384cny" path="res://icon.svg" id="2_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://bbcnwluh8i57t" path="res://Scenes/fat.tscn" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bm0ycfg6ce880" path="res://Assets/Textures/rat_fat.png" id="3_vgqql"]
+[ext_resource type="Script" uid="uid://crjisl7cryo72" path="res://Scripts/spring_player.gd" id="4_x3wgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fkybt"]
+radius = 20.22375
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j60k"]
-size = Vector2(127, 131)
+size = Vector2(19, 20)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_cvnsp")
+script = ExtResource("1_vgqql")
+body_color = Color(0.5176471, 0.49411765, 0.5294118, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -1.5)
-shape = SubResource("RectangleShape2D_8j60k")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6t5aa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Fat6" parent="." instance=ExtResource("3_6t5aa")]
+position = Vector2(-10, -11)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Fat5" parent="." instance=ExtResource("3_6t5aa")]
+position = Vector2(7, -14)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Fat4" parent="." instance=ExtResource("3_6t5aa")]
+position = Vector2(13, 2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Fat3" parent="." instance=ExtResource("3_6t5aa")]
+position = Vector2(7, 11)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Fat2" parent="." instance=ExtResource("3_6t5aa")]
+position = Vector2(-8, 12)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Fat" parent="." instance=ExtResource("3_6t5aa")]
+position = Vector2(-15, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="SpringPlayer" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_x3wgy")
+
+[node name="Springs" type="Node2D" parent="SpringPlayer"]
+
+[node name="6" type="DampedSpringJoint2D" parent="SpringPlayer/Springs"]
+rotation = 2.6179938
+node_a = NodePath("../../../Fat6")
+node_b = NodePath("../..")
+bias = 0.9
+length = 13.0
+rest_length = 1.0
+stiffness = 0.1
+damping = 16.0
+
+[node name="5" type="DampedSpringJoint2D" parent="SpringPlayer/Springs"]
+rotation = -2.6179938
+node_a = NodePath("../../../Fat5")
+node_b = NodePath("../..")
+bias = 0.9
+length = 13.0
+rest_length = 1.0
+stiffness = 0.1
+damping = 16.0
+
+[node name="4" type="DampedSpringJoint2D" parent="SpringPlayer/Springs"]
+rotation = -1.5707964
+node_a = NodePath("../../../Fat4")
+node_b = NodePath("../..")
+bias = 0.9
+length = 13.0
+rest_length = 1.0
+stiffness = 0.1
+damping = 16.0
+
+[node name="3" type="DampedSpringJoint2D" parent="SpringPlayer/Springs"]
+rotation = -0.5235988
+node_a = NodePath("../../../Fat3")
+node_b = NodePath("../..")
+bias = 0.9
+length = 13.0
+rest_length = 1.0
+stiffness = 0.1
+damping = 16.0
+
+[node name="2" type="DampedSpringJoint2D" parent="SpringPlayer/Springs"]
+rotation = 0.5235988
+node_a = NodePath("../../../Fat2")
+node_b = NodePath("../..")
+bias = 0.9
+length = 13.0
+rest_length = 1.0
+stiffness = 0.1
+damping = 16.0
+
+[node name="1" type="DampedSpringJoint2D" parent="SpringPlayer/Springs"]
+rotation = 1.5707964
+node_a = NodePath("../../../Fat")
+node_b = NodePath("../..")
+bias = 0.9
+length = 13.0
+rest_length = 1.0
+stiffness = 0.1
+damping = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpringPlayer"]
+shape = SubResource("CircleShape2D_fkybt")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpringPlayer"]
+scale = Vector2(0.15625001, 0.1640625)
+texture = ExtResource("3_vgqql")
+
+[node name="PlayerController" type="CharacterBody2D" parent="."]
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerController"]
+shape = SubResource("RectangleShape2D_8j60k")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerController"]
+scale = Vector2(0.15625001, 0.1640625)
+texture = ExtResource("2_6t5aa")

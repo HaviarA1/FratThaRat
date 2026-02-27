@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbcnwluh8i57t"]
+
+[ext_resource type="Texture2D" uid="uid://bm0ycfg6ce880" path="res://Assets/Textures/rat_fat.png" id="1_hsbcr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_habxn"]
+radius = 9.0
+
+[node name="Fat" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_habxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_hsbcr")

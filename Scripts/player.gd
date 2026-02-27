@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 50.0
+const JUMP_VELOCITY = -300.0
 var fall_acceleration = 0
 
 
@@ -20,9 +20,15 @@ func _physics_process(delta: float) -> void:
 		fall_acceleration += 0.1
 	
 	if Input.is_action_pressed("left"):
-		velocity.x = -200
+		if velocity.x > -200:
+			velocity.x -= 10
+		else: 
+			velocity.x = -200
 	elif Input.is_action_pressed("right"):
-		velocity.x = 200
+		if velocity.x < 200:
+			velocity.x += 10
+		else: 
+			velocity.x = 200
 	elif abs(velocity.x) > 10:
 		if velocity.x < 0:
 			velocity.x += 10
