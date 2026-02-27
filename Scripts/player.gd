@@ -23,9 +23,10 @@ func increase_level(increase: int):
 	if fat_level + increase <= 4:
 		fat_level += increase
 		set_level(fat_level)
+		print(fat_level)
 
 func set_level(new_level: int):
-	if new_level == 1 or 2:
+	if new_level == 1 or new_level == 2:
 		level_1_collision.disabled = false
 		level_3_collision.disabled = true
 		level_4_collision.disabled = true
@@ -33,15 +34,15 @@ func set_level(new_level: int):
 		sprite_3.hide()
 		sprite_4.hide()
 	elif new_level == 3:
-		level_1_collision.disabled = true
+		level_1_collision.disabled = false
 		level_3_collision.disabled = false
 		level_4_collision.disabled = true
 		sprite_1.hide()
 		sprite_3.show()
 		sprite_4.hide()
 	elif new_level >= 4:
-		level_1_collision.disabled = true
-		level_3_collision.disabled = true
+		level_1_collision.disabled = false
+		level_3_collision.disabled = false
 		level_4_collision.disabled = false
 		sprite_1.hide()
 		sprite_3.hide()

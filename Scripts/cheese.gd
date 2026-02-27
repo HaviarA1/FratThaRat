@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 func _on_collect_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.increase_level(1)
+		print("increase")
 		var cheese = load("res://Scenes/cheese_debris.tscn")
 		var instantiate = cheese.instantiate()
 		get_parent().add_child(instantiate)
