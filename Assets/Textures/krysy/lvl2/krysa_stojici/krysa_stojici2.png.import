@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgd1oplx1orfn"
-path="res://.godot/imported/krysa_stojici-Sheet.png-690798ddf3ce0685a23eeb36fbb7749a.ctex"
+path="res://.godot/imported/krysa_stojici2.png-41f3cbe90e6e5176d29992ab1ccaceb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/krysa_stojici/krysa_stojici-Sheet.png"
-dest_files=["res://.godot/imported/krysa_stojici-Sheet.png-690798ddf3ce0685a23eeb36fbb7749a.ctex"]
+source_file="res://Assets/Textures/krysy/lvl2/krysa_stojici/krysa_stojici2.png"
+dest_files=["res://.godot/imported/krysa_stojici2.png-41f3cbe90e6e5176d29992ab1ccaceb3.ctex"]
 
 [params]
 

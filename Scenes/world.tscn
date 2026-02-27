@@ -187,10 +187,6 @@ light_mode = 1
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_go701")]
-top_level = true
-position = Vector2(18, 71)
-
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_8j60k")
@@ -215,3 +211,9 @@ material = SubResource("CanvasItemMaterial_5ukr8")
 position = Vector2(164, 74)
 scale = Vector2(0.56614584, 0.44375)
 texture = ExtResource("5_fo5ed")
+
+[node name="Player" parent="." instance=ExtResource("1_go701")]
+position = Vector2(51, 77)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false

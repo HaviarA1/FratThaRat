@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3i365o8rr4xf"
-path="res://.godot/imported/krysa_bezici-Sheet.png-8ee12507e101d738fbcd7f3cb7c9bd00.ctex"
+path="res://.godot/imported/krysa_bezici2.png-0bf4af38a077f9f46537334406116b8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/krysa_bezici/krysa_bezici-Sheet.png"
-dest_files=["res://.godot/imported/krysa_bezici-Sheet.png-8ee12507e101d738fbcd7f3cb7c9bd00.ctex"]
+source_file="res://Assets/Textures/krysy/lvl2/krysa_bezici/krysa_bezici2.png"
+dest_files=["res://.godot/imported/krysa_bezici2.png-0bf4af38a077f9f46537334406116b8d.ctex"]
 
 [params]
 

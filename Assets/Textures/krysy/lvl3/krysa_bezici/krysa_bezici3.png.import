@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgd1oplx1orfn"
-path="res://.godot/imported/krysa_stojici-Sheet.png-690798ddf3ce0685a23eeb36fbb7749a.ctex"
+uid="uid://b3i365o8rr4xf"
+path="res://.godot/imported/krysa_bezici3.png-f218c7a5d10ec3aa6f3a562be2cc2b0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/krysa_stojici/krysa_stojici-Sheet.png"
-dest_files=["res://.godot/imported/krysa_stojici-Sheet.png-690798ddf3ce0685a23eeb36fbb7749a.ctex"]
+source_file="res://Assets/Textures/krysy/lvl3/krysa_bezici/krysa_bezici3.png"
+dest_files=["res://.godot/imported/krysa_bezici3.png-f218c7a5d10ec3aa6f3a562be2cc2b0e.ctex"]
 
 [params]
 
