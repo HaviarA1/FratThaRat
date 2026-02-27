@@ -90,7 +90,7 @@ scale = Vector2(0.951, 1)
 sprite_frames = SubResource("SpriteFrames_ukyrk")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.36683992
+frame_progress = 0.44051445
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)

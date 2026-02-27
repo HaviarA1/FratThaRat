@@ -21,21 +21,26 @@ func _physics_process(delta: float) -> void:
 		fall_acceleration += 0.1
 	
 	if Input.is_action_pressed("left"):
+		is_left = true
 		sprite_2d.flip_h = true
 		sprite_2d.animation = "run"
 		if velocity.x > -200:
 			velocity.x -= 10
+		elif velocity.x < -200:
+			velocity.x += 10
 		else: 
 			velocity.x = -200
 	elif Input.is_action_pressed("right"):
+		is_left = false
 		sprite_2d.flip_h = false
 		sprite_2d.animation = "run"
 		if velocity.x < 200:
 			velocity.x += 10
+		elif velocity.x > 200:
+			velocity.x -= 10
 		else: 
 			velocity.x = 200
 	elif abs(velocity.x) > 10:
-		sprite_2d.animation = "idle"
 		if velocity.x < 0:
 			velocity.x += 10
 		else:
@@ -44,6 +49,12 @@ func _physics_process(delta: float) -> void:
 		sprite_2d.animation = "idle"
 		velocity.x = 0	
 		
+	if Input.is_action_just_pressed("dash"):
+		sprite_2d.animation = "run"
+		if is_left:
+			velocity.x = -500
+		else:
+			velocity.x = 500	
 		
 
 	move_and_slide()
