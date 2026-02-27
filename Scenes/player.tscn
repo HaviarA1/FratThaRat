@@ -1,8 +1,23 @@
+<<<<<<< HEAD
 [gd_scene load_steps=15 format=3 uid="uid://cw0xhyynu5w7x"]
+=======
+[gd_scene load_steps=49 format=3 uid="uid://cw0xhyynu5w7x"]
+>>>>>>> parent of 3739b16 (Deleted it once again)
 
 [ext_resource type="Script" uid="uid://dkrqjc0v3doio" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cgd1oplx1orfn" path="res://Assets/Textures/krysy/lvl1/krysa_stojici/krysa_stojici1.png" id="2_gymyn"]
+[ext_resource type="Texture2D" uid="uid://b3i365o8rr4xf" path="res://Assets/Textures/krysy/lvl1/krysa_bezici/krysa_bezici1.png" id="3_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://cgd1oplx1orfn" path="res://Assets/Textures/krysy/lvl2/krysa_stojici/krysa_stojici2.png" id="4_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://hm3qggti4bfq" path="res://Assets/Textures/plyny/plyny.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://b3i365o8rr4xf" path="res://Assets/Textures/krysy/lvl2/krysa_bezici/krysa_bezici2.png" id="5_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://bqvew2nupjms8" path="res://Assets/Textures/white_alpha/white_alpha.png" id="5_fkybt"]
+<<<<<<< HEAD
+=======
+[ext_resource type="Texture2D" uid="uid://b3i365o8rr4xf" path="res://Assets/Textures/krysy/lvl3/krysa_bezici/krysa_bezici3.png" id="7_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://cgd1oplx1orfn" path="res://Assets/Textures/krysy/lvl4/krysa_stojici/krysa_stojici4.png" id="8_gymyn"]
+[ext_resource type="Texture2D" uid="uid://cgd1oplx1orfn" path="res://Assets/Textures/krysy/lvl3/krysa_stojici/krysa_stojici3.png" id="8_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://b3i365o8rr4xf" path="res://Assets/Textures/krysy/lvl4/krysa_bezici/krysa_bezici4.png" id="9_fd4e3"]
+>>>>>>> parent of 3739b16 (Deleted it once again)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gymyn"]
 size = Vector2(24, 46.5)
@@ -13,6 +28,33 @@ size = Vector2(24, 30.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j60k"]
 size = Vector2(24, 15)
 
+<<<<<<< HEAD
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("8_gymyn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("8_gymyn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("9_fd4e3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("9_fd4e3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("9_fd4e3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("9_fd4e3")
+region = Rect2(192, 0, 64, 64)
+
+>>>>>>> parent of 3739b16 (Deleted it once again)
 [sub_resource type="SpriteFrames" id="SpriteFrames_olqyp"]
 animations = [{
 "frames": [],
@@ -26,6 +68,33 @@ animations = [{
 "speed": 5.0
 }]
 
+<<<<<<< HEAD
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ldla"]
+atlas = ExtResource("8_h4iuc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7t2e"]
+atlas = ExtResource("8_h4iuc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmr2m"]
+atlas = ExtResource("7_h4iuc")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax3m3"]
+atlas = ExtResource("7_h4iuc")
+region = Rect2(96, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vlem"]
+atlas = ExtResource("7_h4iuc")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eeqe"]
+atlas = ExtResource("7_h4iuc")
+region = Rect2(288, 0, 96, 48)
+
+>>>>>>> parent of 3739b16 (Deleted it once again)
 [sub_resource type="SpriteFrames" id="SpriteFrames_5x828"]
 animations = [{
 "frames": [],
@@ -39,6 +108,65 @@ animations = [{
 "speed": 5.0
 }]
 
+<<<<<<< HEAD
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
+atlas = ExtResource("3_pu2lt")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
+atlas = ExtResource("3_pu2lt")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
+atlas = ExtResource("3_pu2lt")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
+atlas = ExtResource("3_pu2lt")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("4_ukyrk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
+atlas = ExtResource("4_ukyrk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
+atlas = ExtResource("5_7dp3o")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+atlas = ExtResource("5_7dp3o")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
+atlas = ExtResource("5_7dp3o")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypfnu"]
+atlas = ExtResource("5_7dp3o")
+region = Rect2(192, 0, 64, 32)
+
+>>>>>>> parent of 3739b16 (Deleted it once again)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ukyrk"]
 animations = [{
 "frames": [],
@@ -126,7 +254,11 @@ texture_filter = 1
 position = Vector2(-3.0000002, -16)
 scale = Vector2(0.951, 1)
 sprite_frames = SubResource("SpriteFrames_ukyrk")
+<<<<<<< HEAD
 animation = &"2idle"
+=======
+animation = &"1idle"
+>>>>>>> parent of 3739b16 (Deleted it once again)
 autoplay = "1idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
