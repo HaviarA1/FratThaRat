@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ohl3drhmglqu"]
+[gd_scene load_steps=15 format=3 uid="uid://ohl3drhmglqu"]
 
 [ext_resource type="Texture2D" uid="uid://cdlgx0h8065m4" path="res://Assets/Textures/torch.png" id="1_wced7"]
-[ext_resource type="Texture2D" uid="uid://cxwveexpf3oiw" path="res://Assets/Textures/light_alpha.png" id="2_h1t0l"]
+[ext_resource type="Script" uid="uid://bhk3ft6xrlwum" path="res://Scripts/torch.gd" id="2_beu3c"]
+[ext_resource type="Texture2D" uid="uid://t1e01i7a03bw" path="res://Assets/Textures/white_alpha.png" id="2_h1t0l"]
+[ext_resource type="Texture2D" uid="uid://cxwveexpf3oiw" path="res://Assets/Textures/light_alpha.png" id="4_spjw2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1t0l"]
 atlas = ExtResource("1_wced7")
@@ -39,13 +41,54 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Curve" id="Curve_kg6dd"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.0075757504, -0.34831464), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7ufd5"]
+curve = SubResource("Curve_kg6dd")
+
+[sub_resource type="Curve" id="Curve_05x6m"]
+_data = [Vector2(0, 0.04494381), 0.0, 0.0, 0, 0, Vector2(0.50757575, 0.06741583), 0.0, 0.0, 0, 0, Vector2(1, 0.078651786), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d43v6"]
+curve = SubResource("Curve_05x6m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e64sw"]
+particle_flag_disable_z = true
+angle_min = -67.79999
+angle_max = -67.79999
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 8.239998
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_d43v6")
+color = Color(1, 0.31764707, 0.16470589, 1)
+hue_variation_min = 0.009999977
+hue_variation_max = 0.15999997
+hue_variation_curve = SubResource("CurveTexture_7ufd5")
+
 [node name="Torch" type="AnimatedSprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_7ufd5")
 autoplay = "default"
-frame_progress = 0.33894956
+frame_progress = 0.7846403
+script = ExtResource("2_beu3c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.94934934, 0.5576427, 0.28820735, 1)
 texture = ExtResource("2_h1t0l")
-texture_scale = 3.15
+texture_scale = 0.5
+
+[node name="Ashes" type="GPUParticles2D" parent="."]
+position = Vector2(0, -6)
+emitting = false
+amount = 1
+texture = ExtResource("4_spjw2")
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_e64sw")
