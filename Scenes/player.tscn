@@ -91,12 +91,12 @@ hue_variation_curve = SubResource("CurveTexture_x3wgy")
 script = ExtResource("1_cvnsp")
 
 [node name="Level4Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15.25)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_gymyn")
 disabled = true
 
 [node name="Level3Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7.25)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_pu2lt")
 disabled = true
 
@@ -149,7 +149,7 @@ rotation = 3.1415927
 target_position = Vector2(0, 64)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(7, -4)
+position = Vector2(7, -5)
 color = Color(0.9755834, 1, 0.6735581, 1)
 energy = 0.3
 texture = ExtResource("5_fkybt")
