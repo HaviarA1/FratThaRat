@@ -23,7 +23,7 @@ sources/0 = SubResource("TileSetAtlasSource_5a7ea")
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_go701")]
-position = Vector2(-15, -24)
+position = Vector2(21, 21)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

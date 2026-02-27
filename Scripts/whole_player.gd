@@ -15,5 +15,5 @@ func _draw() -> void:
 	draw_colored_polygon([fat_1.global_position, fat_2.global_position, fat_3.global_position, fat_4.global_position, fat_5.global_position, fat_6.global_position], body_color)
 func _physics_process(delta: float) -> void:
 	
-	global_position = spring_player.position
+	pass
 	
