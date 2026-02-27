@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY	
 	else:
 		velocity.y += fall_acceleration
-		fall_acceleration += 0.4
+		fall_acceleration += 0.5
 	
 	if Input.is_action_pressed("left"):
 		is_left = true
