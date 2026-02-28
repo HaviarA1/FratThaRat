@@ -14,7 +14,7 @@ config/name="CampfireGameJam"
 run/main_scene="uid://dvwdk4nlhqr4o"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://dsqpje48784ce"
-config/icon="res://icon.svg"
+config/icon="uid://dsqpje48784ce"
 
 [autoload]
 

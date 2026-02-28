@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw2htyiu0swr0"]
+[gd_scene load_steps=17 format=3 uid="uid://dw2htyiu0swr0"]
 
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="1_1bamb"]
+[ext_resource type="Script" uid="uid://bbnsyajkohbli" path="res://Scripts/credits.gd" id="1_7emq5"]
 [ext_resource type="Texture2D" uid="uid://cfs5pyuv2rrum" path="res://Assets/Textures/FratThaRat.png" id="1_r18jl"]
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="2_xelri"]
 [ext_resource type="Texture2D" uid="uid://bdfwfrapt72kf" path="res://Assets/Textures/A game by.png" id="4_uah1q"]
+[ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="6_803yc"]
+[ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="7_1wbrc"]
+[ext_resource type="Texture2D" uid="uid://5eekx38t1bvv" path="res://Assets/Textures/UI/play.png" id="8_803yc"]
+[ext_resource type="Texture2D" uid="uid://cs8wwm8fk316h" path="res://Assets/Textures/UI/1.png" id="9_1wbrc"]
+[ext_resource type="Texture2D" uid="uid://deovv6h0k6ja6" path="res://Assets/Textures/UI/2.png" id="10_fdv4u"]
+[ext_resource type="Texture2D" uid="uid://n44bt3duui88" path="res://Assets/Textures/UI/3.png" id="11_ae0tj"]
 
 [sub_resource type="Animation" id="Animation_1g6xd"]
 length = 0.001
@@ -18,6 +25,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [324.0]
 }
 
 [sub_resource type="Animation" id="Animation_yu57u"]
@@ -52,26 +71,52 @@ tracks/0/keys = {
 "values": [1.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_803yc"]
+resource_name = "additional_challenges"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [324.0, 1300.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdysx"]
 _data = {
 &"RESET": SubResource("Animation_1g6xd"),
+&"additional_challenges": SubResource("Animation_803yc"),
 &"darken": SubResource("Animation_yu57u"),
 &"lighten": SubResource("Animation_wnn2o")
 }
 
 [node name="Credits" type="Node2D"]
+script = ExtResource("1_7emq5")
+
+[node name="Parallax4" type="Sprite2D" parent="."]
+position = Vector2(618, 1340)
+texture = ExtResource("1_1bamb")
+
+[node name="Parallax3" type="Sprite2D" parent="."]
+position = Vector2(628, 1255)
+texture = ExtResource("2_xelri")
 
 [node name="Parallax2" type="Sprite2D" parent="."]
 position = Vector2(618, 378)
 texture = ExtResource("1_1bamb")
 
 [node name="Parallax1" type="Sprite2D" parent="."]
-position = Vector2(549, 335)
+position = Vector2(606, 378)
 texture = ExtResource("2_xelri")
 
 [node name="FratThaRat" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(576, 172)
+position = Vector2(576, 169)
 scale = Vector2(4, 4)
 texture = ExtResource("1_r18jl")
 
@@ -84,6 +129,7 @@ autoplay = "lighten"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,3 +144,197 @@ texture_filter = 1
 position = Vector2(587, 331)
 scale = Vector2(4, 4)
 texture = ExtResource("4_uah1q")
+
+[node name="RestartButton" type="TextureButton" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 514.0
+offset_top = 481.0
+offset_right = 652.0
+offset_bottom = 612.9999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_803yc")
+texture_pressed = ExtResource("6_803yc")
+texture_hover = ExtResource("6_803yc")
+texture_disabled = ExtResource("6_803yc")
+texture_focused = ExtResource("6_803yc")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="RestartButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.999939
+offset_right = 108.0
+offset_bottom = 102.99994
+mouse_filter = 1
+mouse_behavior_recursive = 2
+color = Color(1, 1, 1, 0.42745098)
+script = ExtResource("7_1wbrc")
+metadata/_edit_use_anchors_ = true
+
+[node name="AdditionalChallenges" type="TextureButton" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 455.0
+offset_right = 198.0
+offset_bottom = 586.9999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("8_803yc")
+texture_pressed = ExtResource("8_803yc")
+texture_hover = ExtResource("8_803yc")
+texture_disabled = ExtResource("8_803yc")
+texture_focused = ExtResource("8_803yc")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="AdditionalChallenges"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.999939
+offset_right = 108.0
+offset_bottom = 102.99994
+mouse_filter = 1
+mouse_behavior_recursive = 2
+color = Color(1, 1, 1, 0.42745098)
+script = ExtResource("7_1wbrc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Challenge1" type="TextureButton" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = 1077.0
+offset_right = 232.0
+offset_bottom = 1208.9999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_1wbrc")
+texture_pressed = ExtResource("9_1wbrc")
+texture_hover = ExtResource("9_1wbrc")
+texture_disabled = ExtResource("9_1wbrc")
+texture_focused = ExtResource("9_1wbrc")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="Challenge1"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.999939
+offset_right = 108.0
+offset_bottom = 102.99994
+mouse_filter = 1
+mouse_behavior_recursive = 2
+color = Color(1, 1, 1, 0.42745098)
+script = ExtResource("7_1wbrc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Challenge2" type="TextureButton" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = 1205.0
+offset_right = 232.0
+offset_bottom = 1336.9999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("10_fdv4u")
+texture_pressed = ExtResource("10_fdv4u")
+texture_hover = ExtResource("10_fdv4u")
+texture_disabled = ExtResource("10_fdv4u")
+texture_focused = ExtResource("10_fdv4u")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="Challenge2"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.999939
+offset_right = 108.0
+offset_bottom = 102.99994
+mouse_filter = 1
+mouse_behavior_recursive = 2
+color = Color(1, 1, 1, 0.42745098)
+script = ExtResource("7_1wbrc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Challenge3" type="TextureButton" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = 1333.0
+offset_right = 232.0
+offset_bottom = 1464.9999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_ae0tj")
+texture_pressed = ExtResource("11_ae0tj")
+texture_hover = ExtResource("11_ae0tj")
+texture_disabled = ExtResource("11_ae0tj")
+texture_focused = ExtResource("11_ae0tj")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="Challenge3"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.999939
+offset_right = 108.0
+offset_bottom = 102.99994
+mouse_filter = 1
+mouse_behavior_recursive = 2
+color = Color(1, 1, 1, 0.42745098)
+script = ExtResource("7_1wbrc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="RestartButton/Hover" to="RestartButton/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="RestartButton/Hover" to="RestartButton/Hover" method="_on_mouse_exited"]
+[connection signal="pressed" from="AdditionalChallenges" to="." method="_on_additional_challenges_pressed"]
+[connection signal="mouse_entered" from="AdditionalChallenges/Hover" to="AdditionalChallenges/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AdditionalChallenges/Hover" to="AdditionalChallenges/Hover" method="_on_mouse_exited"]
+[connection signal="pressed" from="Challenge1" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="Challenge1/Hover" to="Challenge1/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Challenge1/Hover" to="Challenge1/Hover" method="_on_mouse_exited"]
+[connection signal="pressed" from="Challenge2" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="Challenge2/Hover" to="Challenge2/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Challenge2/Hover" to="Challenge2/Hover" method="_on_mouse_exited"]
+[connection signal="pressed" from="Challenge3" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="Challenge3/Hover" to="Challenge3/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Challenge3/Hover" to="Challenge3/Hover" method="_on_mouse_exited"]

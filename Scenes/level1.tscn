@@ -252,6 +252,12 @@ sources/1 = SubResource("TileSetScenesCollectionSource_fo5ed")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ukr8"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yymuf"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nolpu"]
+light_mode = 1
+
 [sub_resource type="Animation" id="Animation_bs12r"]
 length = 0.001
 tracks/0/type = "value"
@@ -312,12 +318,6 @@ _data = {
 &"restart_button": SubResource("Animation_jgkgd")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yymuf"]
-light_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nolpu"]
-light_mode = 1
-
 [node name="World" type="Node2D"]
 script = ExtResource("1_4iphx")
 
@@ -368,6 +368,32 @@ material = SubResource("CanvasItemMaterial_5ukr8")
 position = Vector2(164, 74)
 scale = Vector2(0.56614584, 0.44375)
 texture = ExtResource("4_4iphx")
+
+[node name="Sipky" type="Sprite2D" parent="."]
+z_index = 3
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yymuf")
+position = Vector2(-263, -12)
+texture = ExtResource("16_yymuf")
+
+[node name="Wasd" type="Sprite2D" parent="."]
+z_index = 3
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yymuf")
+position = Vector2(-199, -12)
+texture = ExtResource("17_esggg")
+
+[node name="Shift" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_nolpu")
+position = Vector2(225, 67)
+texture = ExtResource("18_esggg")
+
+[node name="GetCheese" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
+position = Vector2(17, 89)
+texture = ExtResource("12_nolpu")
 
 [node name="Player" parent="." instance=ExtResource("5_jgkgd")]
 position = Vector2(-354, 28)
@@ -523,32 +549,6 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_rqhku")
 }
-
-[node name="Sipky" type="Sprite2D" parent="."]
-z_index = 3
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_yymuf")
-position = Vector2(-263, -12)
-texture = ExtResource("16_yymuf")
-
-[node name="Wasd" type="Sprite2D" parent="."]
-z_index = 3
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_yymuf")
-position = Vector2(-199, -12)
-texture = ExtResource("17_esggg")
-
-[node name="Shift" type="Sprite2D" parent="."]
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_nolpu")
-position = Vector2(225, 67)
-texture = ExtResource("18_esggg")
-
-[node name="GetCheese" type="Sprite2D" parent="."]
-z_index = 5
-texture_filter = 1
-position = Vector2(17, 89)
-texture = ExtResource("12_nolpu")
 
 [connection signal="show_restart" from="Player" to="." method="_on_player_show_restart"]
 [connection signal="pressed" from="CanvasLayer/RestartButton3" to="." method="_on_restart_button_pressed"]
