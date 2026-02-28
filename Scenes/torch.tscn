@@ -80,7 +80,7 @@ frame_progress = 0.6171976
 script = ExtResource("2_beu3c")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.94934934, 0.5576427, 0.28820735, 1)
+color = Color(0.98389, 0.7038011, 0.5285416, 1)
 blend_mode = 2
 texture = ExtResource("3_spjw2")
 texture_scale = 0.5
