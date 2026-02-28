@@ -147,6 +147,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0	
 		
 	if Input.is_action_just_pressed("dash") and fat_level > 1:
+		superdashing = false
 		fat_level -= 1
 		set_level(fat_level)
 		play_animation("run")
