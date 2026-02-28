@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dogt84th0c1kn"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dogt84th0c1kn"]
 
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="1_s7xww"]
 [ext_resource type="PackedScene" uid="uid://ohl3drhmglqu" path="res://Scenes/torch.tscn" id="2_jfq7t"]
 [ext_resource type="PackedScene" uid="uid://doi3s43e3xv46" path="res://Scenes/cheese.tscn" id="3_n4os0"]
 [ext_resource type="PackedScene" uid="uid://d2mtjhdiyrg4k" path="res://Scenes/hermelin.tscn" id="4_jfq7t"]
+[ext_resource type="PackedScene" uid="uid://bauqrcotqwaay" path="res://Scenes/big_cheese.tscn" id="5_n4os0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8j60k"]
 polygon = PackedVector2Array(0.26978683, -1.0791512, 5.485691, 0.17985916, 8, 8, -8, 8, -4.7662573, 0.17985916)
@@ -22,14 +23,14 @@ texture = ExtResource("1_s7xww")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_fo5ed")
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 5.75548, -5.2159023, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 4, 4, 4, 8, 8, -8, 8)
 2:0/0 = 0
 0:1/0 = 0
 0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_8j60k")
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.8992939, 8, 0.71943474, 8, 8, -8, 8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 4, 4, 4, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_5ukr8")
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.8992939, 8, 0.71943474, 8, 8, -8, 8)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 4, 4, 4, 8, 8, -8, 8)
 0:3/0 = 0
 0:3/0/terrain_set = 0
 0:3/0/terrain = 0
@@ -224,6 +225,7 @@ texture = ExtResource("1_s7xww")
 scenes/1/scene = ExtResource("2_jfq7t")
 scenes/2/scene = ExtResource("3_n4os0")
 scenes/3/scene = ExtResource("4_jfq7t")
+scenes/4/scene = ExtResource("5_n4os0")
 
 [resource]
 occlusion_layer_0/light_mask = 1
