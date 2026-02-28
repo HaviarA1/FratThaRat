@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://2ldfskyuabhp"]
+[gd_scene load_steps=26 format=4 uid="uid://2ldfskyuabhp"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_lgosu"]
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="1_styii"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b5w2j56kb2enk" path="res://Assets/Textures/UI/R.png" id="11_mmf1u"]
 [ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="11_vn460"]
 [ext_resource type="FontFile" uid="uid://bdru82di1snep" path="res://Assets/RemachineScript_Personal_Use.ttf" id="13_r8hce"]
+[ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="14_ca0bt"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8j60k"]
 polygon = PackedVector2Array(0.26978683, -1.0791512, 5.485691, 0.17985916, 8, 8, -8, 8, -4.7662573, 0.17985916)
@@ -244,9 +245,6 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_5a7ea")
 sources/1 = SubResource("TileSetScenesCollectionSource_fo5ed")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ukr8"]
-light_mode = 1
-
 [sub_resource type="Animation" id="Animation_jgkgd"]
 resource_name = "restart_button"
 tracks/0/type = "value"
@@ -307,6 +305,9 @@ _data = {
 &"restart_button": SubResource("Animation_jgkgd")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yj6rp"]
+light_mode = 1
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_lgosu")
 
@@ -330,17 +331,6 @@ tile_set = ExtResource("7_r8hce")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.16452938, 0.15391377, 0.1723268, 1)
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-z_index = -1
-scroll_scale = Vector2(0.5, 0.5)
-
-[node name="Parallax1" type="Sprite2D" parent="Parallax2D"]
-light_mask = 0
-material = SubResource("CanvasItemMaterial_5ukr8")
-position = Vector2(164, 74)
-scale = Vector2(0.56614584, 0.44375)
-texture = ExtResource("4_ng020")
 
 [node name="Player" parent="." instance=ExtResource("5_vn2uo")]
 position = Vector2(-206, -16)
@@ -498,6 +488,32 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_rqhku")
 }
+
+[node name="Parallax2" type="Parallax2D" parent="."]
+z_index = -1
+texture_filter = 1
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="Parallax1" type="Sprite2D" parent="Parallax2"]
+light_mask = 0
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yj6rp")
+position = Vector2(164, 74)
+scale = Vector2(0.56614584, 0.44375)
+texture = ExtResource("14_ca0bt")
+
+[node name="Parallax1" type="Parallax2D" parent="."]
+z_index = -1
+texture_filter = 1
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Parallax1" type="Sprite2D" parent="Parallax1"]
+light_mask = 0
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yj6rp")
+position = Vector2(164, 74)
+scale = Vector2(0.56614584, 0.44375)
+texture = ExtResource("4_ng020")
 
 [connection signal="show_restart" from="Player" to="." method="_on_player_show_restart"]
 [connection signal="pressed" from="CanvasLayer/RestartButton3" to="." method="_on_restart_button_pressed"]

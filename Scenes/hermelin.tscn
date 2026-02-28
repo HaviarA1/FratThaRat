@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2mtjhdiyrg4k"]
+[gd_scene load_steps=9 format=3 uid="uid://d2mtjhdiyrg4k"]
 
 [ext_resource type="Script" uid="uid://dq0tg2qfpyaew" path="res://Scripts/hermelin.gd" id="1_keqge"]
 [ext_resource type="Texture2D" uid="uid://bufvajcxou21e" path="res://Assets/Textures/cheese/hermelin/hermelin.png" id="2_keqge"]
+[ext_resource type="Texture2D" uid="uid://bqvew2nupjms8" path="res://Assets/Textures/white_alpha/white_alpha.png" id="3_8ampo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ljlo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oaiwv"]
-radius = 36.0
+radius = 23.194826
 
 [sub_resource type="Animation" id="Animation_oy54m"]
 resource_name = "Float"
@@ -69,5 +70,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_m1ooa")
 }
 autoplay = "Float"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.30000114, 0)
+scale = Vector2(0.9882812, 1)
+energy = 0.65
+texture = ExtResource("3_8ampo")
+texture_scale = 0.1
 
 [connection signal="body_entered" from="Collect" to="." method="_on_collect_body_entered"]
