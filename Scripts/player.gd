@@ -53,6 +53,7 @@ func set_level(new_level: int):
 	if new_level == 1 or new_level == 2:
 		collision.shape = rectangle_1
 		death_collision.shape = rectangle_1
+		death_collision.position.y = -5
 		collision.position.y = -5
 		sprite_1.show()
 		sprite_3.hide()
@@ -61,12 +62,14 @@ func set_level(new_level: int):
 	elif new_level == 3:
 		collision.shape = rectangle_3
 		death_collision.shape = rectangle_3
+		death_collision.position.y = -10
 		collision.position.y = -10
 		sprite_1.hide()
 		sprite_3.show()
 		sprite_4.hide()
 		speed = 150
 	elif new_level == 4:
+		death_collision.position.y = -20
 		collision.position.y = -20
 		death_collision.shape = rectangle_4
 		collision.shape = rectangle_4

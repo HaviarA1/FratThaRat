@@ -1,5 +1,6 @@
 extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var skill_issue: RichTextLabel = $CanvasLayer/RestartButton/SkillIssue
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +15,10 @@ func _process(delta: float) -> void:
 
 
 func _on_player_show_restart() -> void:
+	skill_issue.hide()
 	animation_player.play("restart_button")
+	if RandomNumberGenerator.new().randi_range(0, 100) == 50:
+		skill_issue.show()
 
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file(scene_file_path)

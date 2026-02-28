@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ljlo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oaiwv"]
-radius = 38.118237
+radius = 12.0
 
 [sub_resource type="Animation" id="Animation_oy54m"]
 resource_name = "Float"
