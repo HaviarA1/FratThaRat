@@ -1,0 +1,65 @@
+[gd_scene load_steps=15 format=3 uid="uid://bobgx7xjb0u71"]
+
+[ext_resource type="Script" uid="uid://6t57r83lcxvx" path="res://Scripts/gore.gd" id="1_ajp5r"]
+[ext_resource type="Texture2D" uid="uid://bpilivc2pa7vg" path="res://Assets/Textures/cheese/cheese_debris.png" id="1_w60ky"]
+[ext_resource type="Texture2D" uid="uid://defucdcb2633p" path="res://Assets/Textures/Gore/gore_1.png" id="2_j08eb"]
+[ext_resource type="Texture2D" uid="uid://dwf4tbsps57vr" path="res://Assets/Textures/Gore/gore_2.png" id="3_dlile"]
+[ext_resource type="Texture2D" uid="uid://bf6865nj4tfm" path="res://Assets/Textures/Gore/gore_3.png" id="4_jdtij"]
+[ext_resource type="Texture2D" uid="uid://c2to6oigmd1ll" path="res://Assets/Textures/Gore/blood.png" id="6_dlile"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vdf23"]
+friction = 2.3
+bounce = 1.66
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_vdf23"]
+points = PackedVector2Array(4, 6, -5, 4, -5, -1, 1, -5, 5, 0)
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jdtij"]
+
+[sub_resource type="Curve" id="Curve_s4q5w"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5174129, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1tp0t"]
+curve = SubResource("Curve_s4q5w")
+
+[sub_resource type="Curve" id="Curve_ag2mx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11940298, 0.50561804), 0.0, 0.0, 0, 0, Vector2(0.47263682, 0.50561804), 0.0, 0.0, 0, 0, Vector2(0.85572135, 0.55056185), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_4uvoi"]
+curve = SubResource("Curve_ag2mx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6a3o0"]
+lifetime_randomness = 0.06
+particle_flag_disable_z = true
+directional_velocity_min = -95.40002
+directional_velocity_max = 134.71999
+directional_velocity_curve = SubResource("CurveXYZTexture_jdtij")
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_4uvoi")
+color = Color(0.8784314, 0.007843138, 0, 1)
+hue_variation_min = -0.11000002
+hue_variation_max = 0.17999998
+hue_variation_curve = SubResource("CurveTexture_1tp0t")
+
+[node name="Gore" type="RigidBody2D"]
+top_level = true
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_vdf23")
+script = ExtResource("1_ajp5r")
+gores = [ExtResource("2_j08eb"), ExtResource("3_dlile"), ExtResource("4_jdtij")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_w60ky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_vdf23")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 16
+texture = ExtResource("6_dlile")
+process_material = SubResource("ParticleProcessMaterial_6a3o0")

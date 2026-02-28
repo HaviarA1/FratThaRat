@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var superdash_right: RayCast2D = $SuperdashRight
+@onready var superdash_left: RayCast2D = $SuperdashLeft
 
 @export var rectangle_1: Shape2D
 @export var rectangle_3: Shape2D
@@ -22,7 +24,24 @@ const JUMP_VELOCITY = -300.0
 var fall_acceleration = 10
 var is_left := false
 
+var superdashing = false
+
 var fat_level = 1
+
+func superdash():
+	gas.emitting = false
+	gas.emitting = true
+	superdashing = true
+	fat_level = 1
+	set_level(fat_level)
+	velocity.y =0
+	if is_left:
+		velocity.x -= 1000
+	else:
+		velocity.x += 1000
+
+
+signal show_restart
 
 func increase_level(increase: int):
 	if fat_level + increase <= 4:
@@ -85,7 +104,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("up"):
 			velocity.y = JUMP_VELOCITY	
 	else:
-		velocity.y += fall_acceleration
+		velocity.y += fall_acceleration * abs(int(superdashing)-1)
 		fall_acceleration += 0.3
 	
 	if Input.is_action_pressed("left"):
@@ -136,10 +155,21 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = 500	
 		
-
+	
+	if superdashing and superdash_right.is_colliding() or superdash_left.is_colliding():
+		superdashing = false
+		
 	move_and_slide()
 
 
 func _on_death_range_body_entered(body: Node2D) -> void:
 	if body.name == "Deadly":
-		get_tree().change_scene_to_file(get_parent().scene_file_path)
+		var gore = load("res://Scenes/gore.tscn")
+		var gore_instance = gore.instantiate()
+		add_child(gore_instance)
+		remove_child(gore_instance)
+		get_parent().add_child(gore_instance)
+		gore_instance.global_position = global_position
+		emit_signal("show_restart")
+		hide()
+		process_mode = Node.PROCESS_MODE_DISABLED

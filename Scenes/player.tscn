@@ -295,15 +295,15 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_6t5aa")
 
 [node name="Sprite4" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -30)
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"4idle"
 autoplay = "4idle"
 
 [node name="Sprite3" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5, -24)
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_vgqql")
-animation = &"3run"
+animation = &"3idle"
 autoplay = "3idle"
 
 [node name="Sprite1" type="AnimatedSprite2D" parent="."]
@@ -311,7 +311,7 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_fkybt")
 animation = &"1idle"
 autoplay = "1idle"
-frame_progress = 0.7499005
+frame_progress = 0.08643239
 
 [node name="Gas" type="GPUParticles2D" parent="."]
 emitting = false
@@ -320,6 +320,14 @@ texture = ExtResource("2_cvnsp")
 one_shot = true
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_tx1dd")
+
+[node name="SuperdashRight" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+rotation = -1.5707964
+
+[node name="SuperdashLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+rotation = 1.5707964
 
 [node name="Ceiling2" type="RayCast2D" parent="."]
 rotation = 3.1415927

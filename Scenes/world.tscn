@@ -34,8 +34,10 @@ position = Vector2(164, 74)
 scale = Vector2(0.56614584, 0.44375)
 texture = ExtResource("5_fo5ed")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
-
 [node name="Player" parent="." instance=ExtResource("1_go701")]
 position = Vector2(38, 75)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-38, -75)
+enabled = false
+zoom = Vector2(4, 4)
