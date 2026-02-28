@@ -337,6 +337,7 @@ color = Color(0.16452938, 0.15391377, 0.1723268, 1)
 [node name="Parallax2" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1.0523903, 1.4442245)
 scroll_scale = Vector2(0.4, 0.4)
 
 [node name="Parallax1" type="Sprite2D" parent="Parallax2"]
@@ -350,6 +351,7 @@ texture = ExtResource("8_n4mi0")
 [node name="Parallax1" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1.0523903, 1.4442245)
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Parallax1" type="Sprite2D" parent="Parallax1"]

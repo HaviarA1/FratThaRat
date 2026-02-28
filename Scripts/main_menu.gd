@@ -16,4 +16,5 @@ func _on_texture_button_pressed() -> void:
 	animation_player.play("darken")
 	await get_tree().create_timer(2).timeout
 	GlobalTimer.show()
+	GlobalTimer.credits_timer.hide()
 	get_tree().change_scene_to_file("res://Scenes/custom_animation.tscn")

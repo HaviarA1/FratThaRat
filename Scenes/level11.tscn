@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cchrf1w7jqmn0"]
+[gd_scene load_steps=27 format=4 uid="uid://cchrf1w7jqmn0"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_rc0rt"]
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="2_huxek"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://bdru82di1snep" path="res://Assets/RemachineScript_Personal_Use.ttf" id="13_2olfn"]
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="14_bchit"]
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="15_38ext"]
+[ext_resource type="FontFile" uid="uid://bx4ftiarn45v2" path="res://Assets/Minecraft.ttf" id="16_huxek"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8j60k"]
 polygon = PackedVector2Array(0.26978683, -1.0791512, 5.485691, 0.17985916, 8, 8, -8, 8, -4.7662573, 0.17985916)
@@ -490,6 +491,7 @@ autoplay = "RESET"
 [node name="Parallax2" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1, 1.4799995)
 scroll_scale = Vector2(0.4, 0.4)
 
 [node name="Parallax1" type="Sprite2D" parent="Parallax2"]
@@ -503,6 +505,7 @@ texture = ExtResource("14_bchit")
 [node name="Parallax1" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1, 1.4799995)
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Parallax1" type="Sprite2D" parent="Parallax1"]
@@ -512,6 +515,17 @@ material = SubResource("CanvasItemMaterial_yj6rp")
 position = Vector2(164, 74)
 scale = Vector2(0.56614584, 0.44375)
 texture = ExtResource("15_38ext")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 348.0
+offset_top = -72.0
+offset_right = 501.0
+offset_bottom = -49.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_huxek")
+theme_override_font_sizes/font_size = 20
+text = "Congratulations"
 
 [connection signal="show_restart" from="Player" to="." method="_on_player_show_restart"]
 [connection signal="pressed" from="CanvasLayer/RestartButton3" to="." method="_on_restart_button_pressed"]
