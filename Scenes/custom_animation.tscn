@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4p63gagdi80b"]
+
+[ext_resource type="Script" uid="uid://c11sxv1frfp1j" path="res://Scripts/custom_animation.gd" id="1_fny2x"]
+
+[node name="CustomAnimation" type="Node2D"]
+script = ExtResource("1_fny2x")
+frames = [null, null, null, null, null, null, null, null, null, null, null, null]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
