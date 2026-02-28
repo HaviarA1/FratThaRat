@@ -13,12 +13,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		get_tree().change_scene_to_file(scene_file_path)
+		GlobalTimer.add_death()
 
 func _on_player_show_restart() -> void:
 	skill_issue.hide()
 	animation_player.play("restart_button")
 	if RandomNumberGenerator.new().randi_range(0, 100) == 50:
 		skill_issue.show()
+		GlobalTimer.add_death()
 
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file(scene_file_path)
+	GlobalTimer.add_death()

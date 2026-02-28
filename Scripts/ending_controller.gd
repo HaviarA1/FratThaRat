@@ -12,6 +12,7 @@ func ending():
 	await get_tree().create_timer(3).timeout
 	audio_stream_player.play()
 	await get_tree().create_timer(3).timeout
+	GlobalTimer.end_timer()
 	get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
