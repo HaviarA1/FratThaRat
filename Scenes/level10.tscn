@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://e5vvtp80lihk"]
+[gd_scene load_steps=28 format=4 uid="uid://e5vvtp80lihk"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_f4sgv"]
+[ext_resource type="Script" uid="uid://1ol1vr1qhs4k" path="res://Scripts/ending_controller.gd" id="2_fn3ea"]
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="2_niaqe"]
 [ext_resource type="PackedScene" uid="uid://ohl3drhmglqu" path="res://Scenes/torch.tscn" id="3_fn3ea"]
 [ext_resource type="PackedScene" uid="uid://doi3s43e3xv46" path="res://Scenes/cheese.tscn" id="4_bdahu"]
@@ -313,6 +314,12 @@ light_mode = 1
 script = ExtResource("1_f4sgv")
 metadata/_edit_horizontal_guides_ = [-365.0]
 
+[node name="EndingController" type="Node2D" parent="."]
+script = ExtResource("2_fn3ea")
+
+[node name="BigCheese" parent="EndingController" instance=ExtResource("8_niaqe")]
+position = Vector2(974, 16)
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_8j60k")
@@ -329,9 +336,6 @@ tile_set = ExtResource("6_vi487")
 
 [node name="Signs" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("7_ora1g")
-
-[node name="BigCheese" parent="TileMap" instance=ExtResource("8_niaqe")]
-position = Vector2(974, 16)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.16452938, 0.15391377, 0.1723268, 1)

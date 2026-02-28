@@ -20,4 +20,5 @@ func _on_collect_body_entered(body: Node2D) -> void:
 		var instantiate = cheese.instantiate()
 		get_parent().add_child(instantiate)
 		instantiate.position = global_position
+		get_parent().ending()
 		queue_free()

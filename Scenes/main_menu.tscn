@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="2_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cfs5pyuv2rrum" path="res://Assets/Textures/FratThaRat.png" id="4_ce3w2"]
-[ext_resource type="PackedScene" uid="uid://doi3s43e3xv46" path="res://Scenes/cheese.tscn" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://cd0qh5erjxlfn" path="res://Assets/Textures/cheese/cheese2/cheese2.png" id="7_cp0ys"]
 
 [sub_resource type="Animation" id="Animation_yu57u"]
 resource_name = "darken"
@@ -72,18 +72,6 @@ texture = ExtResource("2_cp0ys")
 [node name="Parallax1" type="Sprite2D" parent="."]
 position = Vector2(551, 292)
 texture = ExtResource("3_yhxw7")
-
-[node name="Cheese" parent="." instance=ExtResource("4_trj04")]
-position = Vector2(74, 473)
-scale = Vector2(4, 4)
-
-[node name="Cheese2" parent="." instance=ExtResource("4_trj04")]
-position = Vector2(423, 494)
-scale = Vector2(4, 4)
-
-[node name="Cheese3" parent="." instance=ExtResource("4_trj04")]
-position = Vector2(1093, 474)
-scale = Vector2(4, 4)
 
 [node name="FratThaRat" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -160,6 +148,24 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Cheese2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(253, 517)
+scale = Vector2(8.15625, 6.75)
+texture = ExtResource("7_cp0ys")
+
+[node name="Cheese3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(764, 490)
+scale = Vector2(9.90625, 8.8125)
+texture = ExtResource("7_cp0ys")
+
+[node name="Cheese4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1085, 497.99994)
+scale = Vector2(8.65625, 7.40625)
+texture = ExtResource("7_cp0ys")
 
 [connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="mouse_entered" from="Control/TextureButton/Hover" to="Control/TextureButton/Hover" method="_on_mouse_entered"]

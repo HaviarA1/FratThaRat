@@ -170,7 +170,7 @@ func _physics_process(delta: float) -> void:
 		play_animation("run")
 		gas.emitting = false
 		gas.emitting = true
-		velocity.y = -200
+		velocity.y = -300
 		if is_left:
 			velocity.x = -500
 		else:

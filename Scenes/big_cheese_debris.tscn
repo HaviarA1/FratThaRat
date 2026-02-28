@@ -19,5 +19,4 @@ texture_filter = 1
 texture = ExtResource("1_d5kn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-128, -13)
 shape = SubResource("ConvexPolygonShape2D_vdf23")
