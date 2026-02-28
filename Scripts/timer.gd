@@ -25,12 +25,12 @@ func end_timer():
 	screen_timer.hide()
 	credits_timer.show()
 	counting = false
-	credits_timer.text = "Your time is " + str(round(time_from_start/60 *10)) + " and you have " + str(death_count) + str(" deaths")
+	credits_timer.text = "Your time is " + str(float(round(time_from_start/6))/10) + " and you have " + str(death_count) + str(" deaths")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if counting:
-		screen_timer.text = "Time: " + str(round(time_from_start / 60) *10 ) + " s\n" + "Deaths: " + str(death_count)
+		screen_timer.text = "Time: " + str(float(round(time_from_start / 6))/10) + " s\n" + "Deaths: " + str(death_count)
 		time_from_start += 1
 	
  
