@@ -1,0 +1,166 @@
+[gd_scene load_steps=12 format=3 uid="uid://dvwdk4nlhqr4o"]
+
+[ext_resource type="Script" uid="uid://xjdh5ihxt3dl" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://5eekx38t1bvv" path="res://Assets/Textures/UI/play.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="2_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://cfs5pyuv2rrum" path="res://Assets/Textures/FratThaRat.png" id="4_ce3w2"]
+[ext_resource type="PackedScene" uid="uid://doi3s43e3xv46" path="res://Scenes/cheese.tscn" id="4_trj04"]
+
+[sub_resource type="Animation" id="Animation_yu57u"]
+resource_name = "darken"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wnn2o"]
+resource_name = "lighten"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1g6xd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bdysx"]
+_data = {
+&"RESET": SubResource("Animation_1g6xd"),
+&"darken": SubResource("Animation_yu57u"),
+&"lighten": SubResource("Animation_wnn2o")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1ehe0")
+
+[node name="Parallax2" type="Sprite2D" parent="."]
+position = Vector2(530, 282)
+texture = ExtResource("2_cp0ys")
+
+[node name="Parallax1" type="Sprite2D" parent="."]
+position = Vector2(551, 292)
+texture = ExtResource("3_yhxw7")
+
+[node name="Cheese" parent="." instance=ExtResource("4_trj04")]
+position = Vector2(74, 473)
+scale = Vector2(4, 4)
+
+[node name="Cheese2" parent="." instance=ExtResource("4_trj04")]
+position = Vector2(423, 494)
+scale = Vector2(4, 4)
+
+[node name="Cheese3" parent="." instance=ExtResource("4_trj04")]
+position = Vector2(1093, 474)
+scale = Vector2(4, 4)
+
+[node name="FratThaRat" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(587, 142)
+scale = Vector2(4, 4)
+texture = ExtResource("4_ce3w2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 440.0
+offset_top = 188.0
+offset_right = 712.0
+offset_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 53.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0109769)
+texture_normal = ExtResource("1_28flt")
+texture_pressed = ExtResource("1_28flt")
+texture_hover = ExtResource("1_28flt")
+texture_disabled = ExtResource("1_28flt")
+texture_focused = ExtResource("1_28flt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Hover" type="ColorRect" parent="Control/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -84.564606
+offset_right = 76.0
+offset_bottom = 76.6656
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 2
+color = Color(1, 1, 1, 0.42745098)
+script = ExtResource("2_48xlc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bdysx")
+}
+autoplay = "lighten"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="Control/TextureButton/Hover" to="Control/TextureButton/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TextureButton/Hover" to="Control/TextureButton/Hover" method="_on_mouse_exited"]
