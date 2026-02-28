@@ -382,7 +382,7 @@ position_smoothing_enabled = true
 
 [node name="Exit" parent="." instance=ExtResource("6_didp7")]
 position = Vector2(517, 31)
-next_level = "C:/Users/havia_8hg5ort/Documents/campfire-game-jam/CampfireGameJam/Scenes/level2.tscn"
+next_level = "res://Scenes/level2.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
