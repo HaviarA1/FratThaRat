@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cw0xhyynu5w7x"]
+[gd_scene load_steps=54 format=3 uid="uid://cw0xhyynu5w7x"]
 
 [ext_resource type="Script" uid="uid://dkrqjc0v3doio" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://8pi1kxyguobp" path="res://Assets/Textures/Rat/krysa_bezici1.png" id="2_6t5aa"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cqy8nk2bx8qys" path="res://Assets/Textures/Rat/krysa_stojici1.png" id="6_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://caxbjsxpo8t55" path="res://Assets/Textures/Rat/krysa_stojici2.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://cve3p8wo3xskf" path="res://Assets/Textures/Rat/krysa_bezici2.png" id="9_fd4e3"]
+[ext_resource type="AudioStream" uid="uid://nb70be26jwxf" path="res://Assets/Audio/crump.mp3" id="11_gymyn"]
+[ext_resource type="AudioStream" uid="uid://c6fmo1jjsvjtq" path="res://Assets/Audio/Gas1.mp3" id="12_ukyrk"]
+[ext_resource type="AudioStream" uid="uid://cxfqf0vmymbj6" path="res://Assets/Audio/gas2.mp3" id="13_7dp3o"]
+[ext_resource type="AudioStream" uid="uid://hmil1t8pujav" path="res://Assets/Audio/Scream.mp3" id="14_7dp3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
 size = Vector2(36, 10)
@@ -311,7 +315,7 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_fkybt")
 animation = &"1idle"
 autoplay = "1idle"
-frame_progress = 0.38754568
+frame_progress = 0.2540497
 
 [node name="Gas" type="GPUParticles2D" parent="."]
 emitting = false
@@ -344,5 +348,26 @@ collision_mask = 2
 [node name="DeathCollision" type="CollisionShape2D" parent="DeathRange"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_ukyrk")
+
+[node name="Crump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gymyn")
+volume_db = 5.0
+max_polyphony = 6
+
+[node name="Gas1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ukyrk")
+volume_db = 5.0
+max_polyphony = 6
+
+[node name="Gas2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_7dp3o")
+volume_db = 5.0
+max_polyphony = 6
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_7dp3o")
+volume_db = 15.0
+max_polyphony = 6
 
 [connection signal="body_entered" from="DeathRange" to="." method="_on_death_range_body_entered"]

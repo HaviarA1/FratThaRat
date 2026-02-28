@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_collect_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		body.crump_play()
 		var cheese = load("res://Scenes/big_cheese_debris.tscn")
 		var instantiate = cheese.instantiate()
 		get_parent().add_child(instantiate)

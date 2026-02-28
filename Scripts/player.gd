@@ -1,4 +1,8 @@
 extends CharacterBody2D
+@onready var gas_1: AudioStreamPlayer = $Gas1
+@onready var gas_2: AudioStreamPlayer = $Gas2
+@onready var scream: AudioStreamPlayer = $Scream
+@onready var crump: AudioStreamPlayer = $Crump
 
 @onready var superdash_right: RayCast2D = $SuperdashRight
 @onready var superdash_left: RayCast2D = $SuperdashLeft
@@ -12,6 +16,7 @@ extends CharacterBody2D
 
 @onready var collision: CollisionShape2D = $Collision
 @onready var death_collision: CollisionShape2D = $DeathRange/DeathCollision
+
 
 
 @onready var sprite_3: AnimatedSprite2D = $Sprite3
@@ -28,7 +33,12 @@ var superdashing = false
 
 var fat_level = 1
 
+func crump_play():
+	crump.play()
+
+
 func superdash():
+	gas_2.play()
 	gas.emitting = false
 	gas.emitting = true
 	superdashing = true
@@ -100,6 +110,10 @@ func _ready() -> void:
 	play_animation("idle")
 
 func _physics_process(delta: float) -> void:
+	crump.pitch_scale = 1 - fat_level / 5
+	gas_1.pitch_scale = crump.pitch_scale
+	gas_2.pitch_scale = gas_1.pitch_scale
+	scream.pitch_scale = gas_2.pitch_scale
 	# Add the gravity.
 	# Handle jump.
 	if is_on_floor():
@@ -147,6 +161,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0	
 		
 	if Input.is_action_just_pressed("dash") and fat_level > 1:
+		gas_1.play()
 		superdashing = false
 		fat_level -= 1
 		set_level(fat_level)
@@ -168,6 +183,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_death_range_body_entered(body: Node2D) -> void:
 	if body.name == "Deadly":
+		scream.play()
 		var gore = load("res://Scenes/gore.tscn")
 		var gore_instance = gore.instantiate()
 		add_child(gore_instance)
