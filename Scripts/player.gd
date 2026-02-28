@@ -1,20 +1,25 @@
 extends CharacterBody2D
 
+
+@export var rectangle_1: Shape2D
+@export var rectangle_3: Shape2D
+@export var rectangle_4: Shape2D
+
 @onready var ceiling_1: RayCast2D = $Ceiling1
 @onready var ceiling_2: RayCast2D = $Ceiling2
 
-@onready var level_1_collision: CollisionShape2D = $Level1Collision
-@onready var level_3_collision: CollisionShape2D = $Level3Collision
-@onready var level_4_collision: CollisionShape2D = $Level4Collision
+@onready var collision: CollisionShape2D = $Collision
+@onready var death_collision: CollisionShape2D = $DeathRange/DeathCollision
+
 
 @onready var sprite_3: AnimatedSprite2D = $Sprite3
 @onready var sprite_4: AnimatedSprite2D = $Sprite4
 @onready var sprite_1: AnimatedSprite2D = $Sprite1
 @onready var gas: GPUParticles2D = $Gas
 
-const SPEED = 50.0
-const JUMP_VELOCITY = -200.0
-var fall_acceleration = 0
+var speed = 200
+const JUMP_VELOCITY = -300.0
+var fall_acceleration = 10
 var is_left := false
 
 var fat_level = 1
@@ -27,26 +32,29 @@ func increase_level(increase: int):
 
 func set_level(new_level: int):
 	if new_level == 1 or new_level == 2:
-		level_1_collision.disabled = false
-		level_3_collision.disabled = true
-		level_4_collision.disabled = true
+		collision.shape = rectangle_1
+		death_collision.shape = rectangle_1
+		collision.position.y = -5
 		sprite_1.show()
 		sprite_3.hide()
 		sprite_4.hide()
+		speed = 200
 	elif new_level == 3:
-		level_1_collision.disabled = false
-		level_3_collision.disabled = false
-		level_4_collision.disabled = true
+		collision.shape = rectangle_3
+		death_collision.shape = rectangle_3
+		collision.position.y = -10
 		sprite_1.hide()
 		sprite_3.show()
 		sprite_4.hide()
-	elif new_level >= 4:
-		level_1_collision.disabled = false
-		level_3_collision.disabled = false
-		level_4_collision.disabled = false
+		speed = 150
+	elif new_level == 4:
+		collision.position.y = -20
+		death_collision.shape = rectangle_4
+		collision.shape = rectangle_4
 		sprite_1.hide()
 		sprite_3.hide()
 		sprite_4.show()
+		speed = 100
 		
 func play_animation(new_animation: String):
 	if new_animation == "idle":
@@ -73,12 +81,12 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	# Handle jump.
 	if is_on_floor():
-		fall_acceleration = 0
+		fall_acceleration = 10
 		if Input.is_action_just_pressed("up"):
 			velocity.y = JUMP_VELOCITY	
 	else:
 		velocity.y += fall_acceleration
-		fall_acceleration += 0.5
+		fall_acceleration += 0.3
 	
 	if Input.is_action_pressed("left"):
 		is_left = true
@@ -86,31 +94,33 @@ func _physics_process(delta: float) -> void:
 		sprite_3.flip_h = true
 		sprite_4.flip_h = true
 		play_animation("run")
-		if velocity.x > -200:
+		if velocity.x > -speed:
 			velocity.x -= 10
-		elif velocity.x < -200:
+		elif velocity.x < -speed:
 			velocity.x += 10
 		else: 
-			velocity.x = -200
+			velocity.x = -speed
 	elif Input.is_action_pressed("right"):
 		is_left = false
 		sprite_1.flip_h = false
 		sprite_3.flip_h = false
 		sprite_4.flip_h = false
 		play_animation("run")
-		if velocity.x < 200:
+		if velocity.x < speed:
 			velocity.x += 10
-		elif velocity.x > 200:
+		elif velocity.x > speed:
 			velocity.x -= 10
 		else: 
-			velocity.x = 200
+			velocity.x = speed
 	elif abs(velocity.x) > 10:
 		if velocity.x < 0:
 			velocity.x += 10
 		else:
 			velocity.x -= 10
 	else:
-		if not ceiling_1.is_colliding() and not ceiling_2.is_colliding():
+		if ( not ceiling_1.is_colliding() and fat_level == 1 ) or ( not ceiling_1.is_colliding() and fat_level == 2 ):
+			play_animation("idle")
+		elif not ceiling_2.is_colliding() and fat_level == 3:
 			play_animation("idle")
 		velocity.x = 0	
 		
@@ -128,3 +138,8 @@ func _physics_process(delta: float) -> void:
 		
 
 	move_and_slide()
+
+
+func _on_death_range_body_entered(body: Node2D) -> void:
+	if body.name == "Deadly":
+		get_tree().change_scene_to_file(get_parent().scene_file_path)
