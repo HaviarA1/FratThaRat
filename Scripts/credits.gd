@@ -17,4 +17,5 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_additional_challenges_pressed() -> void:
+	GlobalTimer.hide()
 	animation_player.play("additional_challenges")

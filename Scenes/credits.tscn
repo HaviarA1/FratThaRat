@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dw2htyiu0swr0"]
+[gd_scene load_steps=19 format=3 uid="uid://dw2htyiu0swr0"]
 
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="1_1bamb"]
 [ext_resource type="Script" uid="uid://bbnsyajkohbli" path="res://Scripts/credits.gd" id="1_7emq5"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bdfwfrapt72kf" path="res://Assets/Textures/A game by.png" id="4_uah1q"]
 [ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="6_803yc"]
 [ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="7_1wbrc"]
-[ext_resource type="Texture2D" uid="uid://5eekx38t1bvv" path="res://Assets/Textures/UI/play.png" id="8_803yc"]
+[ext_resource type="Texture2D" uid="uid://bpr4uyrbwp4y0" path="res://Assets/Textures/UI/addtional_challenges.png" id="8_ae0tj"]
 [ext_resource type="Texture2D" uid="uid://cs8wwm8fk316h" path="res://Assets/Textures/UI/1.png" id="9_1wbrc"]
+[ext_resource type="Script" uid="uid://cavwgk7d4500j" path="res://Scripts/challenges_controller.gd" id="9_ae0tj"]
 [ext_resource type="Texture2D" uid="uid://deovv6h0k6ja6" path="res://Assets/Textures/UI/2.png" id="10_fdv4u"]
 [ext_resource type="Texture2D" uid="uid://n44bt3duui88" path="res://Assets/Textures/UI/3.png" id="11_ae0tj"]
+[ext_resource type="FontFile" uid="uid://bx4ftiarn45v2" path="res://Assets/Minecraft.ttf" id="11_rlyo5"]
 
 [sub_resource type="Animation" id="Animation_1g6xd"]
 length = 0.001
@@ -153,10 +155,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 514.0
-offset_top = 481.0
-offset_right = 652.0
-offset_bottom = 612.9999
+offset_left = 803.0
+offset_top = 251.0
+offset_right = 941.0
+offset_bottom = 382.99988
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -169,7 +171,10 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Hover" type="ColorRect" parent="RestartButton"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.007246377
+anchor_right = -0.007246377
 offset_left = 26.0
 offset_top = 24.999939
 offset_right = 108.0
@@ -183,28 +188,29 @@ metadata/_edit_use_anchors_ = true
 [node name="AdditionalChallenges" type="TextureButton" parent="."]
 z_index = 1
 texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = 455.0
-offset_right = 198.0
-offset_bottom = 586.9999
-grow_horizontal = 2
+offset_left = 13.0
+offset_top = 497.0
+offset_right = 684.0
+offset_bottom = 563.9999
 grow_vertical = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("8_803yc")
-texture_pressed = ExtResource("8_803yc")
-texture_hover = ExtResource("8_803yc")
-texture_disabled = ExtResource("8_803yc")
-texture_focused = ExtResource("8_803yc")
+texture_normal = ExtResource("8_ae0tj")
+texture_pressed = ExtResource("8_ae0tj")
+texture_hover = ExtResource("8_ae0tj")
+texture_disabled = ExtResource("8_ae0tj")
+texture_focused = ExtResource("8_ae0tj")
 stretch_mode = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="Hover" type="ColorRect" parent="AdditionalChallenges"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.038748138
+anchor_top = -0.35820863
+anchor_right = 0.8390462
+anchor_bottom = -0.5373135
 offset_left = 26.0
 offset_top = 24.999939
 offset_right = 108.0
@@ -215,6 +221,9 @@ color = Color(1, 1, 1, 0.42745098)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 
+[node name="ChallengesController" type="Node2D" parent="."]
+script = ExtResource("9_ae0tj")
+
 [node name="Challenge1" type="TextureButton" parent="."]
 z_index = 1
 texture_filter = 1
@@ -224,9 +233,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 94.0
-offset_top = 1077.0
+offset_top = 1074.0
 offset_right = 232.0
-offset_bottom = 1208.9999
+offset_bottom = 1205.9999
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -238,17 +247,31 @@ texture_focused = ExtResource("9_1wbrc")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover" type="ColorRect" parent="Challenge1"]
-layout_mode = 0
+[node name="Hover1" type="ColorRect" parent="Challenge1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1884058
+anchor_top = -0.18939412
+anchor_right = 0.2173913
+anchor_bottom = 0.21212141
 offset_left = 26.0
 offset_top = 24.999939
 offset_right = 108.0
 offset_bottom = 102.99994
-mouse_filter = 1
 mouse_behavior_recursive = 2
-color = Color(1, 1, 1, 0.42745098)
+color = Color(0.81960785, 0, 0.23137255, 0.42745098)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label1" type="Label" parent="Challenge1"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 54.0
+offset_right = 1859.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("11_rlyo5")
+theme_override_font_sizes/font_size = 28
+text = "Unlocks when you beat the game in less that 5 minutes."
 
 [node name="Challenge2" type="TextureButton" parent="."]
 z_index = 1
@@ -273,17 +296,31 @@ texture_focused = ExtResource("10_fdv4u")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover" type="ColorRect" parent="Challenge2"]
-layout_mode = 0
+[node name="Hover2" type="ColorRect" parent="Challenge2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1884058
+anchor_top = -0.18939412
+anchor_right = 0.2173913
+anchor_bottom = 0.21969718
 offset_left = 26.0
 offset_top = 24.999939
 offset_right = 108.0
 offset_bottom = 102.99994
-mouse_filter = 1
 mouse_behavior_recursive = 2
-color = Color(1, 1, 1, 0.42745098)
+color = Color(0.818991, 0, 0.23223618, 0.42745098)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Challenge2"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 54.0
+offset_right = 1859.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("11_rlyo5")
+theme_override_font_sizes/font_size = 28
+text = "Unlocks when you beat the game in less that 2 minutes."
 
 [node name="Challenge3" type="TextureButton" parent="."]
 z_index = 1
@@ -294,9 +331,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 94.0
-offset_top = 1333.0
+offset_top = 1337.0
 offset_right = 232.0
-offset_bottom = 1464.9999
+offset_bottom = 1468.9999
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -308,17 +345,31 @@ texture_focused = ExtResource("11_ae0tj")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover" type="ColorRect" parent="Challenge3"]
-layout_mode = 0
+[node name="Hover3" type="ColorRect" parent="Challenge3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1884058
+anchor_top = -0.18939412
+anchor_right = 0.2173913
+anchor_bottom = 0.21969718
 offset_left = 26.0
 offset_top = 24.999939
 offset_right = 108.0
 offset_bottom = 102.99994
-mouse_filter = 1
 mouse_behavior_recursive = 2
-color = Color(1, 1, 1, 0.42745098)
+color = Color(0.818991, 0, 0.23223618, 0.42745098)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Challenge3"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 50.0
+offset_right = 1846.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("11_rlyo5")
+theme_override_font_sizes/font_size = 28
+text = "Unlocks when you beat the game withou dying more than 5 times."
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -329,12 +380,12 @@ position = Vector2(576, 324)
 [connection signal="pressed" from="AdditionalChallenges" to="." method="_on_additional_challenges_pressed"]
 [connection signal="mouse_entered" from="AdditionalChallenges/Hover" to="AdditionalChallenges/Hover" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="AdditionalChallenges/Hover" to="AdditionalChallenges/Hover" method="_on_mouse_exited"]
-[connection signal="pressed" from="Challenge1" to="." method="_on_restart_button_pressed"]
-[connection signal="mouse_entered" from="Challenge1/Hover" to="Challenge1/Hover" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Challenge1/Hover" to="Challenge1/Hover" method="_on_mouse_exited"]
-[connection signal="pressed" from="Challenge2" to="." method="_on_restart_button_pressed"]
-[connection signal="mouse_entered" from="Challenge2/Hover" to="Challenge2/Hover" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Challenge2/Hover" to="Challenge2/Hover" method="_on_mouse_exited"]
-[connection signal="pressed" from="Challenge3" to="." method="_on_restart_button_pressed"]
-[connection signal="mouse_entered" from="Challenge3/Hover" to="Challenge3/Hover" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Challenge3/Hover" to="Challenge3/Hover" method="_on_mouse_exited"]
+[connection signal="pressed" from="Challenge1" to="ChallengesController" method="_on_challenge_1_pressed"]
+[connection signal="mouse_entered" from="Challenge1/Hover1" to="Challenge1/Hover1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Challenge1/Hover1" to="Challenge1/Hover1" method="_on_mouse_exited"]
+[connection signal="pressed" from="Challenge2" to="ChallengesController" method="_on_challenge_2_pressed"]
+[connection signal="mouse_entered" from="Challenge2/Hover2" to="Challenge2/Hover2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Challenge2/Hover2" to="Challenge2/Hover2" method="_on_mouse_exited"]
+[connection signal="pressed" from="Challenge3" to="ChallengesController" method="_on_challenge_3_pressed"]
+[connection signal="mouse_entered" from="Challenge3/Hover3" to="Challenge3/Hover3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Challenge3/Hover3" to="Challenge3/Hover3" method="_on_mouse_exited"]
