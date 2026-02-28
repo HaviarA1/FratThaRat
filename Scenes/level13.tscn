@@ -331,7 +331,6 @@ tile_set = ExtResource("6_6166t")
 tile_set = ExtResource("7_yytu7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.16452938, 0.15391377, 0.1723268, 1)
 
 [node name="Parallax2" type="Parallax2D" parent="."]
