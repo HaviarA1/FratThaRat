@@ -385,8 +385,6 @@ position = Vector2(517, 31)
 next_level = "C:/Users/havia_8hg5ort/Documents/campfire-game-jam/CampfireGameJam/Scenes/level2.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-offset = Vector2(64, 0)
-transform = Transform2D(1, 0, 0, 1, 64, 0)
 
 [node name="RestartButton3" type="TextureButton" parent="CanvasLayer"]
 z_index = 1

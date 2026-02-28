@@ -350,8 +350,6 @@ position = Vector2(963, 335)
 next_level = "res://Scenes/level5.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-offset = Vector2(64, 0)
-transform = Transform2D(1, 0, 0, 1, 64, 0)
 
 [node name="RestartButton3" type="TextureButton" parent="CanvasLayer"]
 z_index = 1

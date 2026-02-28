@@ -110,6 +110,8 @@ func _ready() -> void:
 	play_animation("idle")
 
 func _physics_process(delta: float) -> void:
+	if velocity.x ==0:
+		superdashing = false
 	crump.pitch_scale = 1 - fat_level / 5
 	gas_1.pitch_scale = crump.pitch_scale
 	gas_2.pitch_scale = gas_1.pitch_scale
