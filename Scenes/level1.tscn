@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cplid0wa4jkv4"]
+[gd_scene load_steps=22 format=4 uid="uid://cplid0wa4jkv4"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_4iphx"]
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="1_y4dr7"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cw0xhyynu5w7x" path="res://Scenes/player.tscn" id="5_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://c2w4co5vv1evh" path="res://Scenes/exit.tscn" id="6_didp7"]
 [ext_resource type="TileSet" uid="uid://cpxgbyjrto6jr" path="res://Scenes/deadly_tileset.tres" id="6_rqhku"]
+[ext_resource type="Texture2D" uid="uid://b5w2j56kb2enk" path="res://Assets/Textures/UI/R.png" id="10_bs12r"]
+[ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="10_rqhku"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8j60k"]
 polygon = PackedVector2Array(0.26978683, -1.0791512, 5.485691, 0.17985916, 8, 8, -8, 8, -4.7662573, 0.17985916)
@@ -256,6 +258,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(507, -193), Vector2(507, 226)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.8]
+}
 
 [sub_resource type="Animation" id="Animation_bs12r"]
 length = 0.001
@@ -270,6 +284,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(507, -193)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhku"]
@@ -329,6 +355,7 @@ next_level = "C:/Users/havia_8hg5ort/Documents/campfire-game-jam/CampfireGameJam
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="RestartButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -338,6 +365,33 @@ offset_right = 69.0
 offset_bottom = -61.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+texture_normal = ExtResource("10_rqhku")
+texture_pressed = ExtResource("10_rqhku")
+texture_hover = ExtResource("10_rqhku")
+texture_disabled = ExtResource("10_rqhku")
+texture_focused = ExtResource("10_rqhku")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="R" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(1004, 58)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bs12r")
+
+[node name="Restart" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(1101, 57)
+scale = Vector2(4, 4)
+texture = ExtResource("10_rqhku")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
