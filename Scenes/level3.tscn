@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://nu5xe8n8w8uy"]
+[gd_scene load_steps=25 format=4 uid="uid://nu5xe8n8w8uy"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_qrg6c"]
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="2_1x0xh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="5_h6p24"]
 [ext_resource type="TileSet" uid="uid://cpxgbyjrto6jr" path="res://Scenes/deadly_tileset.tres" id="6_csbjj"]
 [ext_resource type="PackedScene" uid="uid://cw0xhyynu5w7x" path="res://Scenes/player.tscn" id="6_vn7r1"]
+[ext_resource type="TileSet" uid="uid://ciyea7npa1lko" path="res://Scenes/signs_tileset.tres" id="7_fpsp3"]
 [ext_resource type="PackedScene" uid="uid://c2w4co5vv1evh" path="res://Scenes/exit.tscn" id="7_vwkqt"]
 [ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="10_h6p24"]
 [ext_resource type="Texture2D" uid="uid://b5w2j56kb2enk" path="res://Assets/Textures/UI/R.png" id="11_vn7r1"]
@@ -324,6 +325,10 @@ tile_set = ExtResource("5_h3ll2")
 tile_map_data = PackedByteArray("AAAGAP7/AAAAAAYAAAAHAP7/AAAAAAcAAAAIAP7/AAAAAAYAAAAJAP7/AAAAAAYAAAAKAP7/AAAAAAcAAAALAP7/AAAAAAYAAAAMAP7/AAAAAAYAAAANAP7/AAAAAAYAAAAOAP7/AAABAAYAAAAPAP7/AAAAAAYAAAA=")
 tile_set = ExtResource("6_csbjj")
 
+[node name="Signs" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAALAAcAAAAAAAQAAAAAAP//AAAAAAQAAAAoAAYAAAAAAAAAAAA=")
+tile_set = ExtResource("7_fpsp3")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.16452938, 0.15391377, 0.1723268, 1)
 
@@ -334,8 +339,8 @@ scroll_scale = Vector2(0.5, 0.5)
 [node name="Parallax1" type="Sprite2D" parent="Parallax2D"]
 light_mask = 0
 material = SubResource("CanvasItemMaterial_5ukr8")
-position = Vector2(149, 3.0000076)
-scale = Vector2(0.56614584, 0.44375)
+position = Vector2(232.99994, 58.999966)
+scale = Vector2(0.7770833, 0.7444445)
 texture = ExtResource("5_h6p24")
 
 [node name="Player" parent="." instance=ExtResource("6_vn7r1")]

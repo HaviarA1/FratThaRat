@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cplid0wa4jkv4"]
+[gd_scene load_steps=25 format=4 uid="uid://cplid0wa4jkv4"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_4iphx"]
 [ext_resource type="Texture2D" uid="uid://yufehqu0yul3" path="res://Assets/Textures/tileset1.png" id="1_y4dr7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cw0xhyynu5w7x" path="res://Scenes/player.tscn" id="5_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://c2w4co5vv1evh" path="res://Scenes/exit.tscn" id="6_didp7"]
 [ext_resource type="TileSet" uid="uid://cpxgbyjrto6jr" path="res://Scenes/deadly_tileset.tres" id="6_rqhku"]
+[ext_resource type="TileSet" uid="uid://ciyea7npa1lko" path="res://Scenes/signs_tileset.tres" id="7_u1b78"]
 [ext_resource type="Texture2D" uid="uid://b5w2j56kb2enk" path="res://Assets/Textures/UI/R.png" id="10_bs12r"]
 [ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="10_rqhku"]
 [ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="11_cpkqv"]
@@ -323,6 +324,10 @@ tile_set = ExtResource("5_bs12r")
 [node name="Deadly" type="TileMapLayer" parent="TileMap"]
 tile_map_data = PackedByteArray("AAANAAsAAAABAAYAAAAOAAsAAAABAAYAAAAPAAsAAAAAAAcAAAAQAAsAAAAAAAcAAAARAAsAAAAAAAYAAAASAAsAAAAAAAYAAAATAAsAAAAAAAcAAAAUAAsAAAAAAAYAAAAVAAsAAAAAAAYAAAAWAAsAAAAAAAYAAAAXAAsAAAAAAAcAAAAYAAsAAAAAAAYAAAA=")
 tile_set = ExtResource("6_rqhku")
+
+[node name="Signs" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AADz/wQAAAAAAAAAAAALAAcAAAAAAAQAAAA=")
+tile_set = ExtResource("7_u1b78")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.16452938, 0.15391377, 0.1723268, 1)
