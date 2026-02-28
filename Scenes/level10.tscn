@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://e5vvtp80lihk"]
+[gd_scene load_steps=30 format=4 uid="uid://e5vvtp80lihk"]
 
 [ext_resource type="Script" uid="uid://dev83inbxdfc5" path="res://Scripts/world.gd" id="1_f4sgv"]
 [ext_resource type="Script" uid="uid://1ol1vr1qhs4k" path="res://Scripts/ending_controller.gd" id="2_fn3ea"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://bdru82di1snep" path="res://Assets/RemachineScript_Personal_Use.ttf" id="13_0iww3"]
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="14_3oeu5"]
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="15_vo2c4"]
+[ext_resource type="AudioStream" uid="uid://c8gojktirsq4r" path="res://Assets/Audio/ending.mp3" id="18_bdahu"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8j60k"]
 polygon = PackedVector2Array(0.26978683, -1.0791512, 5.485691, 0.17985916, 8, 8, -8, 8, -4.7662573, 0.17985916)
@@ -301,9 +302,26 @@ tracks/1/keys = {
 "values": [0.0, 0.8]
 }
 
+[sub_resource type="Animation" id="Animation_fn3ea"]
+resource_name = "ending"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhku"]
 _data = {
 &"RESET": SubResource("Animation_bs12r"),
+&"ending": SubResource("Animation_fn3ea"),
 &"restart_button": SubResource("Animation_jgkgd")
 }
 
@@ -481,9 +499,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -355.0
-offset_top = -1495.0001
+offset_top = -367.99994
 offset_right = -355.0
-offset_bottom = -1745.397
+offset_bottom = -862.5078
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.668528, 7.857083)
@@ -522,6 +540,11 @@ material = SubResource("CanvasItemMaterial_lhhwt")
 position = Vector2(164, 74)
 scale = Vector2(0.56614584, 0.44375)
 texture = ExtResource("15_vo2c4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_bdahu")
+volume_db = 24.0
+pitch_scale = 1.07
 
 [connection signal="show_restart" from="Player" to="." method="_on_player_show_restart"]
 [connection signal="pressed" from="CanvasLayer/RestartButton3" to="." method="_on_restart_button_pressed"]
