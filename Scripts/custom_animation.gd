@@ -19,7 +19,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_accept"):
+		animation_player.play("darken")
+		await get_tree().create_timer(3).timeout
+		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 
 
 func _on_skip_pressed() -> void:

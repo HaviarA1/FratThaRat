@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cx1ibrq3uoa34"]
 
-[ext_resource type="AudioStream" uid="uid://dsl5veahniieg" path="res://Assets/Audio/song1.mp3" id="1_fbmny"]
 [ext_resource type="Script" uid="uid://bx1b42qehqj4v" path="res://Scripts/music.gd" id="1_qxpp0"]
+[ext_resource type="AudioStream" uid="uid://3ov0lw20o4ns" path="res://Assets/Audio/song1_v2.mp3" id="2_qxpp0"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_qxpp0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_fbmny")
+stream = ExtResource("2_qxpp0")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
