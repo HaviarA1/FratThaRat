@@ -516,6 +516,7 @@ libraries = {
 [node name="Parallax2" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1, 1.3904327)
 scroll_scale = Vector2(0.4, 0.4)
 scroll_offset = Vector2(304, 53)
 
@@ -530,6 +531,7 @@ texture = ExtResource("14_3oeu5")
 [node name="Parallax1" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1, 1.3904327)
 scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(304, 53)
 

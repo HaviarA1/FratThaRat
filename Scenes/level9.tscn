@@ -492,8 +492,9 @@ libraries = {
 [node name="Parallax2" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1.7199993, 3.5599995)
 scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(304, 53)
+scroll_offset = Vector2(96, -265)
 
 [node name="Parallax1" type="Sprite2D" parent="Parallax2"]
 light_mask = 0
@@ -506,8 +507,9 @@ texture = ExtResource("14_0nq7k")
 [node name="Parallax1" type="Parallax2D" parent="."]
 z_index = -1
 texture_filter = 1
+scale = Vector2(1.7199993, 3.5599995)
 scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(304, 53)
+scroll_offset = Vector2(96, -265)
 
 [node name="Parallax1" type="Sprite2D" parent="Parallax1"]
 light_mask = 0
