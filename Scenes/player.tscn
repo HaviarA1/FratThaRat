@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cw0xhyynu5w7x"]
+[gd_scene load_steps=50 format=3 uid="uid://cw0xhyynu5w7x"]
 
 [ext_resource type="Script" uid="uid://dkrqjc0v3doio" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://8pi1kxyguobp" path="res://Assets/Textures/Rat/krysa_bezici1.png" id="2_6t5aa"]
@@ -10,10 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cqy8nk2bx8qys" path="res://Assets/Textures/Rat/krysa_stojici1.png" id="6_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://caxbjsxpo8t55" path="res://Assets/Textures/Rat/krysa_stojici2.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://cve3p8wo3xskf" path="res://Assets/Textures/Rat/krysa_bezici2.png" id="9_fd4e3"]
-[ext_resource type="AudioStream" uid="uid://nb70be26jwxf" path="res://Assets/Audio/crump.mp3" id="11_gymyn"]
-[ext_resource type="AudioStream" uid="uid://c6fmo1jjsvjtq" path="res://Assets/Audio/Gas1.mp3" id="12_ukyrk"]
-[ext_resource type="AudioStream" uid="uid://cxfqf0vmymbj6" path="res://Assets/Audio/gas2.mp3" id="13_7dp3o"]
-[ext_resource type="AudioStream" uid="uid://hmil1t8pujav" path="res://Assets/Audio/Scream.mp3" id="14_7dp3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
 size = Vector2(36, 10)
@@ -260,14 +256,14 @@ animations = [{
 
 [sub_resource type="Curve" id="Curve_x3wgy"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0.03787878, -1), 0.0, 0.0, 0, 0, Vector2(0.469697, 0.235955), 0.0, 0.0, 0, 0, Vector2(0.74242425, -0.5280899), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0378788, -1), 0.0, 0.0, 0, 0, Vector2(0.469697, 0.235955), 0.0, 0.0, 0, 0, Vector2(0.742424, -0.52809), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_3smsa"]
 curve = SubResource("Curve_x3wgy")
 
 [sub_resource type="Curve" id="Curve_8erm5"]
-_data = [Vector2(0.045454532, 0.08988774), 0.0, 0.0, 0, 0, Vector2(0.15151516, 0.1460675), 0.0, 0.0, 0, 0, Vector2(0.36363637, 0.123595595), 0.0, 0.0, 0, 0, Vector2(0.6212121, 0.13483155), 0.0, 0.0, 0, 0, Vector2(0.8484848, 0.06741583), 0.0, 0.0, 0, 0, Vector2(1, 0.04494381), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0454545, 0.0898877), 0.0, 0.0, 0, 0, Vector2(0.151515, 0.146068), 0.0, 0.0, 0, 0, Vector2(0.363636, 0.123596), 0.0, 0.0, 0, 0, Vector2(0.621212, 0.134832), 0.0, 0.0, 0, 0, Vector2(0.848485, 0.0674158), 0.0, 0.0, 0, 0, Vector2(1, 0.0449438), 0.0, 0.0, 0, 0]
 point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_f1ek2"]
@@ -277,17 +273,17 @@ curve = SubResource("Curve_8erm5")
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 scale_min = 0.0
-scale_max = 16.869999
+scale_max = 16.87
 scale_curve = SubResource("CurveTexture_f1ek2")
-color = Color(0.042801835, 0.5225031, 0.25611517, 1)
-hue_variation_min = -0.08000002
-hue_variation_max = 0.14999998
+color = Color(0.0428018, 0.522503, 0.256115, 1)
+hue_variation_min = -0.08
+hue_variation_max = 0.15
 hue_variation_curve = SubResource("CurveTexture_3smsa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
 size = Vector2(32, 12)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Sounds"]]
 texture_filter = 1
 script = ExtResource("1_v0iea")
 rectangle_1 = SubResource("RectangleShape2D_tx1dd")
@@ -315,7 +311,7 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_fkybt")
 animation = &"1idle"
 autoplay = "1idle"
-frame_progress = 0.2540497
+frame_progress = 0.25405
 
 [node name="Gas" type="GPUParticles2D" parent="."]
 emitting = false
@@ -327,18 +323,18 @@ process_material = SubResource("ParticleProcessMaterial_tx1dd")
 
 [node name="SuperdashRight" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
-rotation = -1.5707964
+rotation = -1.5708
 
 [node name="SuperdashLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
-rotation = 1.5707964
+rotation = 1.5708
 
 [node name="Ceiling2" type="RayCast2D" parent="."]
-rotation = 3.1415927
+rotation = 3.14159
 target_position = Vector2(0, 64)
 
 [node name="Ceiling1" type="RayCast2D" parent="."]
-rotation = 3.1415927
+rotation = 3.14159
 target_position = Vector2(0, 32)
 
 [node name="DeathRange" type="Area2D" parent="."]
@@ -348,26 +344,5 @@ collision_mask = 2
 [node name="DeathCollision" type="CollisionShape2D" parent="DeathRange"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_ukyrk")
-
-[node name="Crump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_gymyn")
-volume_db = 5.0
-max_polyphony = 6
-
-[node name="Gas1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_ukyrk")
-volume_db = 5.0
-max_polyphony = 6
-
-[node name="Gas2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_7dp3o")
-volume_db = 5.0
-max_polyphony = 6
-
-[node name="Scream" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("14_7dp3o")
-volume_db = 15.0
-max_polyphony = 6
 
 [connection signal="body_entered" from="DeathRange" to="." method="_on_death_range_body_entered"]

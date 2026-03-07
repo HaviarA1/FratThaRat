@@ -1,17 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx1ibrq3uoa34"]
+[gd_scene load_steps=7 format=3 uid="uid://cx1ibrq3uoa34"]
 
 [ext_resource type="Script" uid="uid://bx1b42qehqj4v" path="res://Scripts/music.gd" id="1_qxpp0"]
 [ext_resource type="AudioStream" uid="uid://3ov0lw20o4ns" path="res://Assets/Audio/song1_v2.mp3" id="2_qxpp0"]
+[ext_resource type="AudioStream" uid="uid://nb70be26jwxf" path="res://Assets/Audio/crump.mp3" id="3_8dy0s"]
+[ext_resource type="AudioStream" uid="uid://c6fmo1jjsvjtq" path="res://Assets/Audio/Gas1.mp3" id="4_ckt5d"]
+[ext_resource type="AudioStream" uid="uid://cxfqf0vmymbj6" path="res://Assets/Audio/gas2.mp3" id="5_c63kx"]
+[ext_resource type="AudioStream" uid="uid://hmil1t8pujav" path="res://Assets/Audio/Scream.mp3" id="6_dhgrt"]
 
 [node name="Music" type="Node"]
 process_mode = 3
 script = ExtResource("1_qxpp0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["Music"]]
 process_mode = 3
 stream = ExtResource("2_qxpp0")
 volume_db = -10.0
 autoplay = true
-stream_paused = true
+
+[node name="Crump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8dy0s")
+volume_db = 5.0
+max_polyphony = 6
+
+[node name="Gas1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ckt5d")
+volume_db = 5.0
+max_polyphony = 6
+
+[node name="Gas2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c63kx")
+volume_db = 5.0
+max_polyphony = 6
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_dhgrt")
+volume_db = 5.0
+max_polyphony = 6
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

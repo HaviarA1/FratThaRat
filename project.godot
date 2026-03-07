@@ -30,6 +30,11 @@ GlobalTimer="*res://Scenes/timer.tscn"
 window/size/mode=2
 window/stretch/mode="viewport"
 
+[global_group]
+
+Sounds=""
+Music=""
+
 [input]
 
 up={
