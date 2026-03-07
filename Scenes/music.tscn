@@ -4,11 +4,14 @@
 [ext_resource type="AudioStream" uid="uid://3ov0lw20o4ns" path="res://Assets/Audio/song1_v2.mp3" id="2_qxpp0"]
 
 [node name="Music" type="Node"]
+process_mode = 3
 script = ExtResource("1_qxpp0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_qxpp0")
 volume_db = -10.0
 autoplay = true
+stream_paused = true
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

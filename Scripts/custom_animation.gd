@@ -13,6 +13,7 @@ func intro():
 		animation_player.play("darken")
 		await get_tree().create_timer(3).timeout
 	GlobalTimer.start_timer()	
+	GlobalTimer.pause_screen.start()
 	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 	
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		animation_player.play("darken")
 		await get_tree().create_timer(3).timeout
+		GlobalTimer.pause_screen.start()
 		GlobalTimer.start_timer()
 		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 	
@@ -32,4 +34,5 @@ func _on_skip_pressed() -> void:
 	animation_player.play("darken")
 	await get_tree().create_timer(3).timeout
 	GlobalTimer.start_timer()
+	GlobalTimer.pause_screen.start()
 	get_tree().change_scene_to_file("res://Scenes/level1.tscn")

@@ -19,26 +19,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/path = NodePath("Camera2D:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1.0]
+"values": [324.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position:y")
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [324.0]
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_803yc"]
@@ -63,14 +63,14 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_wnn2o"]
@@ -79,14 +79,14 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 0.0]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdysx"]
@@ -131,7 +131,6 @@ autoplay = "lighten"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -158,7 +157,7 @@ anchor_bottom = 0.5
 offset_left = 803.0
 offset_top = 251.0
 offset_right = 941.0
-offset_bottom = 382.99988
+offset_bottom = 383.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -173,15 +172,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Hover" type="ColorRect" parent="RestartButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.007246377
-anchor_right = -0.007246377
+anchor_left = -0.00724638
+anchor_right = -0.00724638
 offset_left = 26.0
-offset_top = 24.999939
+offset_top = 24.9999
 offset_right = 108.0
-offset_bottom = 102.99994
+offset_bottom = 103.0
 mouse_filter = 1
-mouse_behavior_recursive = 2
-color = Color(1, 1, 1, 0.42745098)
+color = Color(1, 1, 1, 0.427451)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 
@@ -194,7 +192,7 @@ anchor_bottom = 0.5
 offset_left = 13.0
 offset_top = 497.0
 offset_right = 684.0
-offset_bottom = 563.9999
+offset_bottom = 564.0
 grow_vertical = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("8_ae0tj")
@@ -207,17 +205,16 @@ stretch_mode = 0
 [node name="Hover" type="ColorRect" parent="AdditionalChallenges"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.038748138
-anchor_top = -0.5373135
-anchor_right = 0.8390462
-anchor_bottom = -0.5373135
+anchor_left = -0.0387481
+anchor_top = -0.537314
+anchor_right = 0.839046
+anchor_bottom = -0.537314
 offset_left = 26.0
-offset_top = 24.999939
+offset_top = 24.9999
 offset_right = 108.0
-offset_bottom = 102.99994
+offset_bottom = 103.0
 mouse_filter = 1
-mouse_behavior_recursive = 2
-color = Color(1, 1, 1, 0.42745098)
+color = Color(1, 1, 1, 0.427451)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 
@@ -235,7 +232,7 @@ anchor_bottom = 0.5
 offset_left = 94.0
 offset_top = 1074.0
 offset_right = 232.0
-offset_bottom = 1205.9999
+offset_bottom = 1206.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -250,16 +247,15 @@ metadata/_edit_use_anchors_ = true
 [node name="Hover1" type="ColorRect" parent="Challenge1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.1884058
-anchor_top = -0.18939412
-anchor_right = 0.2173913
-anchor_bottom = 0.21212141
+anchor_left = -0.188406
+anchor_top = -0.189394
+anchor_right = 0.217391
+anchor_bottom = 0.212121
 offset_left = 26.0
-offset_top = 24.999939
+offset_top = 24.9999
 offset_right = 108.0
-offset_bottom = 102.99994
-mouse_behavior_recursive = 2
-color = Color(0.81960785, 0, 0.23137255, 0.42745098)
+offset_bottom = 103.0
+color = Color(0.819608, 0, 0.231373, 0.427451)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 
@@ -284,7 +280,7 @@ anchor_bottom = 0.5
 offset_left = 94.0
 offset_top = 1205.0
 offset_right = 232.0
-offset_bottom = 1336.9999
+offset_bottom = 1337.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -299,16 +295,15 @@ metadata/_edit_use_anchors_ = true
 [node name="Hover2" type="ColorRect" parent="Challenge2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.1884058
-anchor_top = -0.18939412
-anchor_right = 0.2173913
-anchor_bottom = 0.21969718
+anchor_left = -0.188406
+anchor_top = -0.189394
+anchor_right = 0.217391
+anchor_bottom = 0.219697
 offset_left = 26.0
-offset_top = 24.999939
+offset_top = 24.9999
 offset_right = 108.0
-offset_bottom = 102.99994
-mouse_behavior_recursive = 2
-color = Color(0.818991, 0, 0.23223618, 0.42745098)
+offset_bottom = 103.0
+color = Color(0.818991, 0, 0.232236, 0.427451)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 
@@ -333,7 +328,7 @@ anchor_bottom = 0.5
 offset_left = 94.0
 offset_top = 1337.0
 offset_right = 232.0
-offset_bottom = 1468.9999
+offset_bottom = 1469.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -348,16 +343,15 @@ metadata/_edit_use_anchors_ = true
 [node name="Hover3" type="ColorRect" parent="Challenge3"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.1884058
-anchor_top = -0.18939412
-anchor_right = 0.2173913
-anchor_bottom = 0.21969718
+anchor_left = -0.188406
+anchor_top = -0.189394
+anchor_right = 0.217391
+anchor_bottom = 0.219697
 offset_left = 26.0
-offset_top = 24.999939
+offset_top = 24.9999
 offset_right = 108.0
-offset_bottom = 102.99994
-mouse_behavior_recursive = 2
-color = Color(0.818991, 0, 0.23223618, 0.42745098)
+offset_bottom = 103.0
+color = Color(0.818991, 0, 0.232236, 0.427451)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 

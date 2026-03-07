@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxbjsxpo8t55"
-path="res://.godot/imported/krysa_stojici2.png-b09e9c8207642cc82fefa6897784bcdb.ctex"
+uid="uid://cg0pj07xl7hte"
+path="res://.godot/imported/resume.png-35ea1a4d420eeaf45c6860e99b3316de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Rat/krysa_stojici2.png"
-dest_files=["res://.godot/imported/krysa_stojici2.png-b09e9c8207642cc82fefa6897784bcdb.ctex"]
+source_file="res://Assets/Textures/UI/resume.png"
+dest_files=["res://.godot/imported/resume.png-35ea1a4d420eeaf45c6860e99b3316de.ctex"]
 
 [params]
 

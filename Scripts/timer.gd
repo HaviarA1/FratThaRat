@@ -1,11 +1,17 @@
 extends CanvasLayer
 @onready var screen_timer: RichTextLabel = $Control/ScreenTimer
 @onready var credits_timer: RichTextLabel = $Control/CreditsTimer
+@onready var pause_screen: Control = $PauseScreen
 
 
 var counting = false
 var time_from_start = 0.0
 var death_count = 0
+
+func start_pause_menu():
+	pause_screen.start()
+func stop_pause_menu():
+	pause_screen.stop()
 
 # Called when the node enters the scene tree for the first time.
 func add_death():
@@ -21,6 +27,11 @@ func start_timer():
 	credits_timer.hide()
 	screen_timer.show()
 
+func reset_timer():
+	screen_timer.hide()
+	credits_timer.hide()
+	counting = false
+	
 func end_timer():
 	screen_timer.hide()
 	credits_timer.show()
