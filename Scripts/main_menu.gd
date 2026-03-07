@@ -31,3 +31,11 @@ func _on_settings_pressed() -> void:
 
 func _on_close_settings_pressed() -> void:
 	animation_player.play("hide_settings")
+
+
+func _on_close_challenges_pressed() -> void:
+	animation_player.play("hide_challenges")
+
+
+func _on_challenges_pressed() -> void:
+	animation_player.play("show_challenges")
