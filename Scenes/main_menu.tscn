@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvwdk4nlhqr4o"]
+[gd_scene format=3 uid="uid://dvwdk4nlhqr4o"]
 
 [ext_resource type="Script" uid="uid://xjdh5ihxt3dl" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://5eekx38t1bvv" path="res://Assets/Textures/UI/play.png" id="1_28flt"]
@@ -19,6 +19,36 @@
 [ext_resource type="Texture2D" uid="uid://deovv6h0k6ja6" path="res://Assets/Textures/UI/2.png" id="16_mkpwh"]
 [ext_resource type="Texture2D" uid="uid://n44bt3duui88" path="res://Assets/Textures/UI/3.png" id="17_4nkqq"]
 
+[sub_resource type="Animation" id="Animation_ehtkc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4nkqq"]
+resource_name = "challenges_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
+}
+
 [sub_resource type="Animation" id="Animation_yu57u"]
 resource_name = "darken"
 length = 2.0
@@ -33,6 +63,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_mkpwh"]
+resource_name = "hide_challenges"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
 }
 
 [sub_resource type="Animation" id="Animation_vtepg"]
@@ -66,21 +111,6 @@ tracks/0/keys = {
 "values": [1.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_5egv6"]
-resource_name = "show_settings"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Settings/CanvasLayer/Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -687), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_ujyyl"]
 resource_name = "show_challenges"
 tracks/0/type = "value"
@@ -96,49 +126,19 @@ tracks/0/keys = {
 "values": [Vector2(0, -648), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_mkpwh"]
-resource_name = "hide_challenges"
+[sub_resource type="Animation" id="Animation_5egv6"]
+resource_name = "show_settings"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
+tracks/0/path = NodePath("Settings/CanvasLayer/Control:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -648)]
-}
-
-[sub_resource type="Animation" id="Animation_4nkqq"]
-resource_name = "challenges_start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -648)]
-}
-
-[sub_resource type="Animation" id="Animation_ehtkc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -687), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdysx"]
@@ -153,42 +153,42 @@ _data = {
 &"show_settings": SubResource("Animation_5egv6")
 }
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Node2D" unique_id=887466164]
 script = ExtResource("1_1ehe0")
 
-[node name="Parallax2" type="Sprite2D" parent="."]
+[node name="Parallax2" type="Sprite2D" parent="." unique_id=1071312771]
 position = Vector2(530, 282)
 texture = ExtResource("2_cp0ys")
 
-[node name="Parallax1" type="Sprite2D" parent="."]
+[node name="Parallax1" type="Sprite2D" parent="." unique_id=1091214933]
 position = Vector2(551, 292)
 texture = ExtResource("3_yhxw7")
 
-[node name="FratThaRat" type="Sprite2D" parent="."]
+[node name="FratThaRat" type="Sprite2D" parent="." unique_id=1765887839]
 texture_filter = 1
 position = Vector2(587, 142)
 scale = Vector2(4, 4)
 texture = ExtResource("4_ce3w2")
 
-[node name="Cheese2" type="Sprite2D" parent="."]
+[node name="Cheese2" type="Sprite2D" parent="." unique_id=1788156724]
 texture_filter = 1
 position = Vector2(253, 517)
 scale = Vector2(8.15625, 6.75)
 texture = ExtResource("7_cp0ys")
 
-[node name="Cheese3" type="Sprite2D" parent="."]
+[node name="Cheese3" type="Sprite2D" parent="." unique_id=1005396468]
 texture_filter = 1
 position = Vector2(764, 490)
 scale = Vector2(9.90625, 8.8125)
 texture = ExtResource("7_cp0ys")
 
-[node name="Cheese4" type="Sprite2D" parent="."]
+[node name="Cheese4" type="Sprite2D" parent="." unique_id=981136177]
 texture_filter = 1
 position = Vector2(1085, 498)
 scale = Vector2(8.65625, 7.40625)
 texture = ExtResource("7_cp0ys")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=2063412550]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -202,7 +202,7 @@ offset_bottom = 460.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="TextureButton" parent="Control"]
+[node name="Play" type="TextureButton" parent="Control" unique_id=1966575076]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -223,7 +223,7 @@ texture_focused = ExtResource("1_28flt")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Hover" type="ColorRect" parent="Control/Play"]
+[node name="Hover" type="ColorRect" parent="Control/Play" unique_id=2053647722]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -240,7 +240,7 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0.427451)
 script = ExtResource("2_48xlc")
 
-[node name="Settings" type="TextureButton" parent="Control"]
+[node name="Settings" type="TextureButton" parent="Control" unique_id=268296770]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -261,7 +261,7 @@ texture_focused = ExtResource("7_5egv6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Hover" type="ColorRect" parent="Control/Settings"]
+[node name="Hover" type="ColorRect" parent="Control/Settings" unique_id=1130115520]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -278,7 +278,7 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0.427451)
 script = ExtResource("2_48xlc")
 
-[node name="Challenges" type="TextureButton" parent="Control"]
+[node name="Challenges" type="TextureButton" parent="Control" unique_id=625308336]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -299,7 +299,7 @@ texture_focused = ExtResource("9_ujyyl")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Hover" type="ColorRect" parent="Control/Challenges"]
+[node name="Hover" type="ColorRect" parent="Control/Challenges" unique_id=528872379]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -316,27 +316,21 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0.427451)
 script = ExtResource("2_48xlc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bdysx")
-}
-autoplay = "lighten"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1151852746]
+libraries/ = SubResource("AnimationLibrary_bdysx")
+autoplay = &"lighten"
 
-[node name="SettingsAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bdysx")
-}
-autoplay = "lighten"
+[node name="SettingsAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1444012977]
+libraries/ = SubResource("AnimationLibrary_bdysx")
+autoplay = &"lighten"
 
-[node name="ChallengesAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bdysx")
-}
-autoplay = "challenges_start"
+[node name="ChallengesAnimationPlayer" type="AnimationPlayer" parent="." unique_id=221646354]
+libraries/ = SubResource("AnimationLibrary_bdysx")
+autoplay = &"challenges_start"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1145989476]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1846975805]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -346,12 +340,12 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Node2D" parent="."]
+[node name="Settings" type="Node2D" parent="." unique_id=1063910125]
 position = Vector2(0, -687)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Settings"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Settings" unique_id=715252149]
 
-[node name="Control" type="Control" parent="Settings/CanvasLayer"]
+[node name="Control" type="Control" parent="Settings/CanvasLayer" unique_id=362460976]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -362,12 +356,12 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="SettingBackground" type="Sprite2D" parent="Settings/CanvasLayer/Control"]
+[node name="SettingBackground" type="Sprite2D" parent="Settings/CanvasLayer/Control" unique_id=1888015542]
 texture_filter = 1
 position = Vector2(589, 312)
 texture = ExtResource("8_t1dhk")
 
-[node name="Panel" type="Panel" parent="Settings/CanvasLayer/Control"]
+[node name="Panel" type="Panel" parent="Settings/CanvasLayer/Control" unique_id=780337906]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -380,7 +374,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Label" parent="Settings/CanvasLayer/Control"]
+[node name="Settings" type="Label" parent="Settings/CanvasLayer/Control" unique_id=1869124790]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -396,7 +390,7 @@ theme_override_font_sizes/font_size = 100
 text = "Settings"
 metadata/_edit_use_anchors_ = true
 
-[node name="Music" type="Label" parent="Settings/CanvasLayer/Control"]
+[node name="Music" type="Label" parent="Settings/CanvasLayer/Control" unique_id=592935345]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -412,7 +406,7 @@ theme_override_font_sizes/font_size = 15
 text = "Music"
 metadata/_edit_use_anchors_ = true
 
-[node name="MusicSlider" type="HSlider" parent="Settings/CanvasLayer/Control"]
+[node name="MusicSlider" type="HSlider" parent="Settings/CanvasLayer/Control" unique_id=1958173153]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -436,7 +430,7 @@ step = 0.05
 value = 0.5
 metadata/_edit_use_anchors_ = true
 
-[node name="Sound" type="Label" parent="Settings/CanvasLayer/Control"]
+[node name="Sound" type="Label" parent="Settings/CanvasLayer/Control" unique_id=504418500]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -452,7 +446,7 @@ theme_override_font_sizes/font_size = 15
 text = "Sound"
 metadata/_edit_use_anchors_ = true
 
-[node name="SoundSlider" type="HSlider" parent="Settings/CanvasLayer/Control"]
+[node name="SoundSlider" type="HSlider" parent="Settings/CanvasLayer/Control" unique_id=2062622168]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -476,7 +470,7 @@ step = 0.05
 value = 0.5
 metadata/_edit_use_anchors_ = true
 
-[node name="CloseSettings" type="TextureButton" parent="Settings/CanvasLayer/Control"]
+[node name="CloseSettings" type="TextureButton" parent="Settings/CanvasLayer/Control" unique_id=632840919]
 texture_filter = 1
 layout_mode = 0
 offset_left = 345.0
@@ -491,7 +485,7 @@ texture_focused = ExtResource("12_m3bi6")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover" type="ColorRect" parent="Settings/CanvasLayer/Control/CloseSettings"]
+[node name="Hover" type="ColorRect" parent="Settings/CanvasLayer/Control/CloseSettings" unique_id=1423928761]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -509,12 +503,12 @@ color = Color(1, 1, 1, 0.427451)
 script = ExtResource("2_48xlc")
 metadata/_edit_use_anchors_ = true
 
-[node name="AdditionalChallenges" type="Node2D" parent="."]
+[node name="AdditionalChallenges" type="Node2D" parent="." unique_id=2142672089]
 position = Vector2(0, -687)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="AdditionalChallenges"]
+[node name="CanvasLayer" type="CanvasLayer" parent="AdditionalChallenges" unique_id=613698289]
 
-[node name="Control" type="Control" parent="AdditionalChallenges/CanvasLayer"]
+[node name="Control" type="Control" parent="AdditionalChallenges/CanvasLayer" unique_id=2040659407]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -523,12 +517,12 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ChallengesBackground" type="Sprite2D" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="ChallengesBackground" type="Sprite2D" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=141937988]
 texture_filter = 1
 position = Vector2(589, 312)
 texture = ExtResource("8_t1dhk")
 
-[node name="Challenges" type="Label" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="Challenges" type="Label" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=623465453]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -546,7 +540,7 @@ theme_override_font_sizes/font_size = 100
 text = "Challenges"
 metadata/_edit_use_anchors_ = true
 
-[node name="CloseChallenges" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="CloseChallenges" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=307940842]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -566,7 +560,7 @@ texture_focused = ExtResource("12_m3bi6")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/CloseChallenges"]
+[node name="Hover" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/CloseChallenges" unique_id=785497386]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.767
@@ -581,11 +575,11 @@ color = Color(1, 1, 1, 0.427451)
 script = ExtResource("2_48xlc")
 metadata/_edit_use_anchors_ = true
 
-[node name="ChallengesController" type="Node2D" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="ChallengesController" type="Node2D" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=279786502]
 position = Vector2(-546, -1236)
 script = ExtResource("14_wyh8j")
 
-[node name="Challenge1" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="Challenge1" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=843807943]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
@@ -609,7 +603,7 @@ texture_focused = ExtResource("15_ujyyl")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover1" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/Challenge1"]
+[node name="Hover1" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/Challenge1" unique_id=2012274009]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.188406
@@ -624,7 +618,7 @@ color = Color(0.819608, 0, 0.231373, 0.427451)
 script = ExtResource("2_48xlc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label1" type="Label" parent="AdditionalChallenges/CanvasLayer/Control/Challenge1"]
+[node name="Label1" type="Label" parent="AdditionalChallenges/CanvasLayer/Control/Challenge1" unique_id=918817507]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 54.0
@@ -635,7 +629,7 @@ theme_override_font_sizes/font_size = 24
 text = "Unlocks when you beat the game in less that 5 minutes."
 metadata/_edit_use_anchors_ = true
 
-[node name="Challenge2" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="Challenge2" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=1694322805]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
@@ -659,7 +653,7 @@ texture_focused = ExtResource("16_mkpwh")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover2" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/Challenge2"]
+[node name="Hover2" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/Challenge2" unique_id=247954601]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.188406
@@ -674,7 +668,7 @@ color = Color(0.818991, 0, 0.232236, 0.427451)
 script = ExtResource("2_48xlc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="AdditionalChallenges/CanvasLayer/Control/Challenge2"]
+[node name="Label2" type="Label" parent="AdditionalChallenges/CanvasLayer/Control/Challenge2" unique_id=436786955]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 54.0
@@ -685,7 +679,7 @@ theme_override_font_sizes/font_size = 24
 text = "Unlocks when you beat the game in less that 2 minutes."
 metadata/_edit_use_anchors_ = true
 
-[node name="Challenge3" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control"]
+[node name="Challenge3" type="TextureButton" parent="AdditionalChallenges/CanvasLayer/Control" unique_id=1780942707]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
@@ -709,7 +703,7 @@ texture_focused = ExtResource("17_4nkqq")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover3" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/Challenge3"]
+[node name="Hover3" type="ColorRect" parent="AdditionalChallenges/CanvasLayer/Control/Challenge3" unique_id=1455758972]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.188406
@@ -724,7 +718,7 @@ color = Color(0.818991, 0, 0.232236, 0.427451)
 script = ExtResource("2_48xlc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="AdditionalChallenges/CanvasLayer/Control/Challenge3"]
+[node name="Label3" type="Label" parent="AdditionalChallenges/CanvasLayer/Control/Challenge3" unique_id=47818895]
 layout_mode = 0
 offset_left = 142.0
 offset_top = 50.0
