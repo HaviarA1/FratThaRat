@@ -19,73 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://deovv6h0k6ja6" path="res://Assets/Textures/UI/2.png" id="16_mkpwh"]
 [ext_resource type="Texture2D" uid="uid://n44bt3duui88" path="res://Assets/Textures/UI/3.png" id="17_4nkqq"]
 
-[sub_resource type="Animation" id="Animation_1g6xd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [324.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Settings/CanvasLayer/Control:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -687)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -648)]
-}
-
-[sub_resource type="Animation" id="Animation_803yc"]
-resource_name = "additional_challenges"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [324.0, 1300.0]
-}
-
 [sub_resource type="Animation" id="Animation_yu57u"]
 resource_name = "darken"
 length = 2.0
@@ -178,10 +111,40 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -648)]
 }
 
+[sub_resource type="Animation" id="Animation_4nkqq"]
+resource_name = "challenges_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
+}
+
+[sub_resource type="Animation" id="Animation_ehtkc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AdditionalChallenges/CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdysx"]
 _data = {
-&"RESET": SubResource("Animation_1g6xd"),
-&"additional_challenges": SubResource("Animation_803yc"),
+&"RESET": SubResource("Animation_ehtkc"),
+&"challenges_start": SubResource("Animation_4nkqq"),
 &"darken": SubResource("Animation_yu57u"),
 &"hide_challenges": SubResource("Animation_mkpwh"),
 &"hide_settings": SubResource("Animation_vtepg"),
@@ -359,6 +322,18 @@ libraries = {
 }
 autoplay = "lighten"
 
+[node name="SettingsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bdysx")
+}
+autoplay = "lighten"
+
+[node name="ChallengesAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bdysx")
+}
+autoplay = "challenges_start"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -368,7 +343,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="Node2D" parent="."]
@@ -544,8 +519,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -648.0
-offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true

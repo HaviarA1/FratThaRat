@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var credits_timer: RichTextLabel = $Control/CreditsTimer
 @onready var pause_screen: Control = $PauseScreen
 
-
+var unlocks = [false,false,false]
 var counting = false
 var time_from_start = 0.0
 var death_count = 0
@@ -37,6 +37,13 @@ func end_timer():
 	credits_timer.show()
 	counting = false
 	credits_timer.text = "Your time is " + str(float(round(time_from_start/6))/10) + " and you have " + str(death_count) + str(" deaths")
+	if (round(time_from_start / 6) / 10) <= 300:
+		unlocks[0] = true
+	if (round(time_from_start / 6) / 10) <= 120:
+		unlocks[1] = true
+	if death_count <= 5:
+		unlocks[2] = true
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

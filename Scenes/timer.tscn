@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bghiq4x7uonac" path="res://Assets/Textures/UI/menu.png" id="5_wlgqq"]
 
 [node name="Timer" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_pvhx5")
 
 [node name="Control" type="Control" parent="."]
@@ -60,6 +61,7 @@ bbcode_enabled = true
 [node name="PauseScreen" type="Control" parent="."]
 process_mode = 3
 visible = false
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +72,7 @@ script = ExtResource("3_4hjkw")
 
 [node name="ColorRect" type="ColorRect" parent="PauseScreen"]
 process_mode = 3
+z_index = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,6 +83,7 @@ color = Color(0, 0, 0, 0.705882)
 
 [node name="Resume" type="TextureButton" parent="PauseScreen"]
 process_mode = 3
+z_index = 5
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -101,6 +105,7 @@ texture_focused = ExtResource("4_sw2ev")
 stretch_mode = 0
 
 [node name="Hover" type="ColorRect" parent="PauseScreen/Resume"]
+z_index = 5
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,6 +124,7 @@ script = ExtResource("5_hng2x")
 
 [node name="Menu" type="TextureButton" parent="PauseScreen"]
 process_mode = 3
+z_index = 5
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -140,6 +146,7 @@ texture_focused = ExtResource("5_wlgqq")
 stretch_mode = 0
 
 [node name="Hover" type="ColorRect" parent="PauseScreen/Menu"]
+z_index = 5
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -3,6 +3,8 @@ extends Node2D
 "res://Scenes/level13.tscn"
 @onready var sound_slider: HSlider = $Settings/CanvasLayer/Control/SoundSlider
 @onready var music_slider: HSlider = $Settings/CanvasLayer/Control/MusicSlider
+@onready var settings_animation_player: AnimationPlayer = $SettingsAnimationPlayer
+@onready var challenges_animation_player: AnimationPlayer = $ChallengesAnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,16 +28,16 @@ func _on_texture_button_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	animation_player.play("show_settings")
+	settings_animation_player.play("show_settings")
 
 
 func _on_close_settings_pressed() -> void:
-	animation_player.play("hide_settings")
+	settings_animation_player.play("hide_settings")
 
 
 func _on_close_challenges_pressed() -> void:
-	animation_player.play("hide_challenges")
+	challenges_animation_player.play("hide_challenges")
 
 
 func _on_challenges_pressed() -> void:
-	animation_player.play("show_challenges")
+	challenges_animation_player.play("show_challenges")
