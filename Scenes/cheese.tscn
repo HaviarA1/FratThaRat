@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://doi3s43e3xv46"]
+[gd_scene format=3 uid="uid://doi3s43e3xv46"]
 
 [ext_resource type="Script" uid="uid://cuaseyqs7po00" path="res://Scripts/cheese.gd" id="1_46kgj"]
 [ext_resource type="Texture2D" uid="uid://de3iv13aysc6g" path="res://Assets/Textures/cheese/cheese1/cheese1.png" id="1_oaiwv"]
@@ -47,29 +47,27 @@ _data = {
 &"RESET": SubResource("Animation_g4xpp")
 }
 
-[node name="Cheese" type="StaticBody2D"]
+[node name="Cheese" type="StaticBody2D" unique_id=953221863]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_46kgj")
 textures = [ExtResource("1_oaiwv"), ExtResource("3_oy54m")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2070170649]
 shape = SubResource("CircleShape2D_2ljlo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=397240991]
 texture_filter = 1
 texture = ExtResource("3_oy54m")
 
-[node name="Collect" type="Area2D" parent="."]
+[node name="Collect" type="Area2D" parent="." unique_id=1327118674]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect" unique_id=93652164]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_oaiwv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m1ooa")
-}
-autoplay = "Float"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1732063742]
+libraries/ = SubResource("AnimationLibrary_m1ooa")
+autoplay = &"Float"
 
 [connection signal="body_entered" from="Collect" to="." method="_on_collect_body_entered"]

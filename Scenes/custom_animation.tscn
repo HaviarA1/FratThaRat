@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4p63gagdi80b"]
+[gd_scene format=3 uid="uid://c4p63gagdi80b"]
 
 [ext_resource type="Script" uid="uid://c11sxv1frfp1j" path="res://Scripts/custom_animation.gd" id="1_fny2x"]
 [ext_resource type="Texture2D" uid="uid://f5idop82yo8o" path="res://Assets/Textures/UI/intro/intro1.png" id="2_yu57u"]
@@ -65,22 +65,24 @@ _data = {
 &"lighten": SubResource("Animation_wnn2o")
 }
 
-[node name="CustomAnimation" type="Node2D"]
+[node name="CustomAnimation" type="Node2D" unique_id=2113523434 groups=["Unpausable"]]
 script = ExtResource("1_fny2x")
 frames = [ExtResource("2_yu57u"), ExtResource("3_wnn2o"), ExtResource("4_1g6xd"), ExtResource("5_bdysx"), ExtResource("6_qemba"), ExtResource("10_0ojv8"), ExtResource("14_0xex3")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bdysx")
-}
-autoplay = "RESET"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1507267747]
+libraries/ = SubResource("AnimationLibrary_bdysx")
+autoplay = &"RESET"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SkipAnimation" type="AnimationPlayer" parent="." unique_id=1754908804]
+libraries/ = SubResource("AnimationLibrary_bdysx")
+autoplay = &"RESET"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=490501309]
 texture_filter = 1
 position = Vector2(576.5, 324)
 scale = Vector2(7.19375, 7.2)
 
-[node name="Skip" type="TextureButton" parent="."]
+[node name="Skip" type="TextureButton" parent="." unique_id=1178957488]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -101,7 +103,7 @@ texture_focused = ExtResource("9_vioj5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Hover" type="ColorRect" parent="Skip"]
+[node name="Hover" type="ColorRect" parent="Skip" unique_id=1879743518]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,9 +120,9 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0.427451)
 script = ExtResource("10_5xll6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2072674995]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1199802687]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

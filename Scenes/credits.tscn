@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dw2htyiu0swr0"]
+[gd_scene format=3 uid="uid://dw2htyiu0swr0"]
 
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="1_1bamb"]
 [ext_resource type="Script" uid="uid://bbnsyajkohbli" path="res://Scripts/credits.gd" id="1_7emq5"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bdfwfrapt72kf" path="res://Assets/Textures/A game by.png" id="4_uah1q"]
 [ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="6_803yc"]
 [ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="7_1wbrc"]
-[ext_resource type="Texture2D" uid="uid://4sfrihba231w" path="res://Assets/Textures/UI/addtional_challenges.png" id="8_ae0tj"]
 
 [sub_resource type="Animation" id="Animation_1g6xd"]
 length = 0.001
@@ -92,40 +91,38 @@ _data = {
 &"lighten": SubResource("Animation_wnn2o")
 }
 
-[node name="Credits" type="Node2D"]
+[node name="Credits" type="Node2D" unique_id=560112792]
 script = ExtResource("1_7emq5")
 
-[node name="Parallax4" type="Sprite2D" parent="."]
+[node name="Parallax4" type="Sprite2D" parent="." unique_id=1848950075]
 position = Vector2(618, 1340)
 texture = ExtResource("1_1bamb")
 
-[node name="Parallax3" type="Sprite2D" parent="."]
+[node name="Parallax3" type="Sprite2D" parent="." unique_id=692424340]
 position = Vector2(628, 1255)
 texture = ExtResource("2_xelri")
 
-[node name="Parallax2" type="Sprite2D" parent="."]
+[node name="Parallax2" type="Sprite2D" parent="." unique_id=528390976]
 position = Vector2(618, 378)
 texture = ExtResource("1_1bamb")
 
-[node name="Parallax1" type="Sprite2D" parent="."]
+[node name="Parallax1" type="Sprite2D" parent="." unique_id=1616177082]
 position = Vector2(606, 378)
 texture = ExtResource("2_xelri")
 
-[node name="FratThaRat" type="Sprite2D" parent="."]
+[node name="FratThaRat" type="Sprite2D" parent="." unique_id=1867534701]
 texture_filter = 1
 position = Vector2(576, 169)
 scale = Vector2(4, 4)
 texture = ExtResource("1_r18jl")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bdysx")
-}
-autoplay = "lighten"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=711645943]
+libraries/ = SubResource("AnimationLibrary_bdysx")
+autoplay = &"lighten"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1462902269]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=3482510]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -135,13 +132,13 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="AGameBy" type="Sprite2D" parent="."]
+[node name="AGameBy" type="Sprite2D" parent="." unique_id=1195098131]
 texture_filter = 1
 position = Vector2(587, 331)
 scale = Vector2(4, 4)
 texture = ExtResource("4_uah1q")
 
-[node name="RestartButton" type="TextureButton" parent="."]
+[node name="RestartButton" type="TextureButton" parent="." unique_id=839438994 groups=["Unpausable"]]
 z_index = 1
 texture_filter = 1
 anchors_preset = 8
@@ -164,7 +161,7 @@ texture_focused = ExtResource("6_803yc")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Hover" type="ColorRect" parent="RestartButton"]
+[node name="Hover" type="ColorRect" parent="RestartButton" unique_id=1439713167]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.00724638
@@ -178,47 +175,9 @@ color = Color(1, 1, 1, 0.427451)
 script = ExtResource("7_1wbrc")
 metadata/_edit_use_anchors_ = true
 
-[node name="AdditionalChallenges" type="TextureButton" parent="."]
-z_index = 1
-texture_filter = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 13.0
-offset_top = 497.0
-offset_right = 684.0
-offset_bottom = 564.0
-grow_vertical = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("8_ae0tj")
-texture_pressed = ExtResource("8_ae0tj")
-texture_hover = ExtResource("8_ae0tj")
-texture_disabled = ExtResource("8_ae0tj")
-texture_focused = ExtResource("8_ae0tj")
-stretch_mode = 0
-
-[node name="Hover" type="ColorRect" parent="AdditionalChallenges"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0387481
-anchor_top = -0.537314
-anchor_right = 0.839046
-anchor_bottom = -0.537314
-offset_left = 26.0
-offset_top = 24.9999
-offset_right = 108.0
-offset_bottom = 103.0
-mouse_filter = 1
-color = Color(1, 1, 1, 0.427451)
-script = ExtResource("7_1wbrc")
-metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=525831084]
 position = Vector2(576, 324)
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="mouse_entered" from="RestartButton/Hover" to="RestartButton/Hover" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="RestartButton/Hover" to="RestartButton/Hover" method="_on_mouse_exited"]
-[connection signal="pressed" from="AdditionalChallenges" to="." method="_on_additional_challenges_pressed"]
-[connection signal="mouse_entered" from="AdditionalChallenges/Hover" to="AdditionalChallenges/Hover" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="AdditionalChallenges/Hover" to="AdditionalChallenges/Hover" method="_on_mouse_exited"]

@@ -15,8 +15,3 @@ func _process(delta: float) -> void:
 func _on_restart_button_pressed() -> void:
 	GlobalTimer.hide()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-
-
-func _on_additional_challenges_pressed() -> void:
-	GlobalTimer.hide()
-	animation_player.play("additional_challenges")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cw0xhyynu5w7x"]
+[gd_scene format=3 uid="uid://cw0xhyynu5w7x"]
 
 [ext_resource type="Script" uid="uid://dkrqjc0v3doio" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://8pi1kxyguobp" path="res://Assets/Textures/Rat/krysa_bezici1.png" id="2_6t5aa"]
@@ -283,37 +283,37 @@ hue_variation_curve = SubResource("CurveTexture_3smsa")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
 size = Vector2(32, 12)
 
-[node name="Player" type="CharacterBody2D" groups=["Sounds"]]
+[node name="Player" type="CharacterBody2D" unique_id=946025681 groups=["Sounds"]]
 texture_filter = 1
 script = ExtResource("1_v0iea")
 rectangle_1 = SubResource("RectangleShape2D_tx1dd")
 rectangle_3 = SubResource("RectangleShape2D_gymyn")
 rectangle_4 = SubResource("RectangleShape2D_pu2lt")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1032686107]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_6t5aa")
 
-[node name="Sprite4" type="AnimatedSprite2D" parent="."]
+[node name="Sprite4" type="AnimatedSprite2D" parent="." unique_id=1756920252]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
 animation = &"4idle"
 autoplay = "4idle"
 
-[node name="Sprite3" type="AnimatedSprite2D" parent="."]
+[node name="Sprite3" type="AnimatedSprite2D" parent="." unique_id=342806501]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_vgqql")
 animation = &"3idle"
 autoplay = "3idle"
 
-[node name="Sprite1" type="AnimatedSprite2D" parent="."]
+[node name="Sprite1" type="AnimatedSprite2D" parent="." unique_id=302849929]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_fkybt")
 animation = &"1idle"
 autoplay = "1idle"
 frame_progress = 0.25405
 
-[node name="Gas" type="GPUParticles2D" parent="."]
+[node name="Gas" type="GPUParticles2D" parent="." unique_id=292205902]
 emitting = false
 amount = 6
 texture = ExtResource("2_cvnsp")
@@ -321,27 +321,27 @@ one_shot = true
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_tx1dd")
 
-[node name="SuperdashRight" type="RayCast2D" parent="."]
+[node name="SuperdashRight" type="RayCast2D" parent="." unique_id=2104658545]
 position = Vector2(0, -6)
 rotation = -1.5708
 
-[node name="SuperdashLeft" type="RayCast2D" parent="."]
+[node name="SuperdashLeft" type="RayCast2D" parent="." unique_id=57060006]
 position = Vector2(0, -6)
 rotation = 1.5708
 
-[node name="Ceiling2" type="RayCast2D" parent="."]
+[node name="Ceiling2" type="RayCast2D" parent="." unique_id=1904442947]
 rotation = 3.14159
 target_position = Vector2(0, 64)
 
-[node name="Ceiling1" type="RayCast2D" parent="."]
+[node name="Ceiling1" type="RayCast2D" parent="." unique_id=762838267]
 rotation = 3.14159
 target_position = Vector2(0, 32)
 
-[node name="DeathRange" type="Area2D" parent="."]
+[node name="DeathRange" type="Area2D" parent="." unique_id=1098962641]
 collision_layer = 2
 collision_mask = 2
 
-[node name="DeathCollision" type="CollisionShape2D" parent="DeathRange"]
+[node name="DeathCollision" type="CollisionShape2D" parent="DeathRange" unique_id=2139539039]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_ukyrk")
 

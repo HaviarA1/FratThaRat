@@ -15,10 +15,12 @@ extends CharacterBody2D
 
 
 
+
 @onready var sprite_3: AnimatedSprite2D = $Sprite3
 @onready var sprite_4: AnimatedSprite2D = $Sprite4
 @onready var sprite_1: AnimatedSprite2D = $Sprite1
 @onready var gas: GPUParticles2D = $Gas
+
 
 var speed = 200
 const JUMP_VELOCITY = -300.0
@@ -26,6 +28,8 @@ var fall_acceleration = 10
 var is_left := false
 
 var superdashing = false
+
+
 
 var fat_level = 1
 
@@ -54,8 +58,7 @@ func increase_level(increase: int):
 	if fat_level + increase <= 4:
 		fat_level += increase
 		set_level(fat_level)
-		print(fat_level)
-
+		
 func set_level(new_level: int):
 	if new_level == 1 or new_level == 2:
 		collision.shape = rectangle_1
@@ -107,6 +110,9 @@ func _ready() -> void:
 	play_animation("idle")
 
 func _physics_process(delta: float) -> void:
+		
+	
+	
 	if velocity.x ==0:
 		superdashing = false
 	Music.crump.pitch_scale = 1 - fat_level / 5
@@ -117,7 +123,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if is_on_floor():
 		fall_acceleration = 10
-		if Input.is_action_just_pressed("up"):
+		if Input.is_action_pressed("up"):
 			velocity.y = JUMP_VELOCITY	
 	else:
 		velocity.y += fall_acceleration * abs(int(superdashing)-1)

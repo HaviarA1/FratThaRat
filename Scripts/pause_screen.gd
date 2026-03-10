@@ -3,11 +3,8 @@ extends Control
 
 var playing = false
 var paused = false
+var unpausable_scenes = ["res://Scenes/custom_animation.tscn", "res://Scenes/main_menu.tscn", "res://Scenes/credits.tscn"]
 
-func start():
-	playing = true
-func stop():
-	playing = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,6 +12,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if get_tree().get_first_node_in_group("Unpausable") != null:
+		if unpausable_scenes.find(get_tree().get_first_node_in_group("Unpausable").scene_file_path) != -1:
+			playing = false
+	else:
+		playing = true
+		
 	if playing:	
 		if paused and Input.is_action_just_pressed("Pause"):
 			pause_screen.hide()
