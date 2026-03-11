@@ -7,35 +7,77 @@
 [ext_resource type="AudioStream" uid="uid://cxfqf0vmymbj6" path="res://Assets/Audio/gas2.mp3" id="5_c63kx"]
 [ext_resource type="AudioStream" uid="uid://hmil1t8pujav" path="res://Assets/Audio/Scream.mp3" id="6_dhgrt"]
 
-[node name="Music" type="Node"]
+[sub_resource type="Animation" id="Animation_ckt5d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:music_normal_volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:music_alternative_volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckt5d"]
+_data = {
+&"RESET": SubResource("Animation_ckt5d")
+}
+
+[node name="Music" type="Node" unique_id=943598420]
 process_mode = 3
 script = ExtResource("1_qxpp0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["Music"]]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1013969720 groups=["Music"]]
 process_mode = 3
 stream = ExtResource("2_qxpp0")
 volume_db = -10.0
 autoplay = true
 
-[node name="Crump" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=332358152 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("2_qxpp0")
+volume_db = -80.0
+autoplay = true
+
+[node name="Crump" type="AudioStreamPlayer" parent="." unique_id=521021672]
 stream = ExtResource("3_8dy0s")
 volume_db = 5.0
 max_polyphony = 6
 
-[node name="Gas1" type="AudioStreamPlayer" parent="."]
+[node name="Gas1" type="AudioStreamPlayer" parent="." unique_id=1072831551]
 stream = ExtResource("4_ckt5d")
 volume_db = 5.0
 max_polyphony = 6
 
-[node name="Gas2" type="AudioStreamPlayer" parent="."]
+[node name="Gas2" type="AudioStreamPlayer" parent="." unique_id=1810408710]
 stream = ExtResource("5_c63kx")
 volume_db = 5.0
 max_polyphony = 6
 
-[node name="Scream" type="AudioStreamPlayer" parent="."]
+[node name="Scream" type="AudioStreamPlayer" parent="." unique_id=410844562]
 process_mode = 3
 stream = ExtResource("6_dhgrt")
 volume_db = 5.0
 max_polyphony = 6
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1542318520]
+libraries/ = SubResource("AnimationLibrary_ckt5d")
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_audio_stream_player_finished"]

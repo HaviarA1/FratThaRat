@@ -327,7 +327,7 @@ tile_set = ExtResource("5_4ap32")
 tile_map_data = PackedByteArray("AAAHAPv/AAACAAIAAAAHAPz/AAADAAMAAAAKAPf/AAADAAIAAAAZAPv/AAAAAAYAAAAaAPv/AAAAAAcAAAARAPv/AAAAAAcAAAASAPv/AAAAAAYAAAAjAPv/AAAAAAYAAAAkAPv/AAAAAAYAAAA=")
 tile_set = ExtResource("6_f4qaq")
 
-[node name="Signs" type="TileMapLayer" parent="TileMap" unique_id=657575431]
+[node name="Signs" type="TileMapLayer" parent="TileMap" unique_id=657575431 groups=["AlternativeMusic"]]
 tile_map_data = PackedByteArray("AAAGAP//AAAAAAQAAAAMAPb/AAAAAAAAAAAmAPv/AAAAAAAAAAA=")
 tile_set = ExtResource("7_ohxpv")
 

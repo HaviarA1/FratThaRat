@@ -1,17 +1,23 @@
 extends Node
+
 @onready var crump: AudioStreamPlayer = $Crump
 @onready var gas_1: AudioStreamPlayer = $Gas1
 @onready var gas_2: AudioStreamPlayer = $Gas2
 @onready var scream: AudioStreamPlayer = $Scream
 
+@onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var music_volume = 0.5
 var sound_volume = 0.5
 
+var alternative = false
+
 func set_music_volume(new_volume):
 	music_volume = new_volume
 	audio_stream_player.volume_linear = new_volume
+	audio_stream_player_2.volume_linear = new_volume
+	
 
 
 func set_sound_volume(new_volume):
@@ -24,12 +30,19 @@ func set_sound_volume(new_volume):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	audio_stream_player_2.volume_linear = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if get_tree().get_first_node_in_group("AlternativeMusic") == null:
+		audio_stream_player.bus = "Master"
+		audio_stream_player_2.bus = "Mute"
+	else:
+		audio_stream_player_2.bus = "Master"
+		audio_stream_player.bus = "Mute"
+			
+		
 
 
 func _on_audio_stream_player_finished() -> void:
