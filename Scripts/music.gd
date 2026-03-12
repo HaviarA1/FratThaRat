@@ -30,7 +30,8 @@ func set_sound_volume(new_volume):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	audio_stream_player_2.volume_linear = 0
+	audio_stream_player.bus = "Master"
+	audio_stream_player_2.bus = "Mute"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,3 +48,4 @@ func _process(delta: float) -> void:
 
 func _on_audio_stream_player_finished() -> void:
 	audio_stream_player.play()
+	audio_stream_player_2.play()

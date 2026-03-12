@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cfs5pyuv2rrum" path="res://Assets/Textures/FratThaRat.png" id="1_r18jl"]
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="2_xelri"]
 [ext_resource type="Texture2D" uid="uid://bdfwfrapt72kf" path="res://Assets/Textures/A game by.png" id="4_uah1q"]
-[ext_resource type="Texture2D" uid="uid://cemxol4srwbni" path="res://Assets/Textures/UI/reload.png" id="6_803yc"]
+[ext_resource type="Texture2D" uid="uid://bghiq4x7uonac" path="res://Assets/Textures/UI/menu.png" id="5_7emq5"]
 [ext_resource type="Script" uid="uid://hw6ka8wqcprw" path="res://Scripts/hover.gd" id="7_1wbrc"]
 
 [sub_resource type="Animation" id="Animation_1g6xd"]
@@ -122,7 +122,55 @@ autoplay = &"lighten"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1462902269]
 
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=60705150]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="TextureButton" parent="CanvasLayer/Control" unique_id=839438994 groups=["Unpausable"]]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_top = -248.0
+offset_right = 75.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_7emq5")
+texture_pressed = ExtResource("5_7emq5")
+texture_hover = ExtResource("5_7emq5")
+texture_disabled = ExtResource("5_7emq5")
+texture_focused = ExtResource("5_7emq5")
+stretch_mode = 0
+
+[node name="Hover" type="ColorRect" parent="CanvasLayer/Control/RestartButton" unique_id=1439713167]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.1811593
+anchor_top = -0.3124988
+anchor_right = 0.21739142
+anchor_bottom = -0.2875
+offset_left = 26.0
+offset_top = 24.9999
+offset_right = 108.0
+offset_bottom = 103.0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.427451)
+script = ExtResource("7_1wbrc")
+metadata/_edit_use_anchors_ = true
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=3482510]
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -138,46 +186,9 @@ position = Vector2(587, 331)
 scale = Vector2(4, 4)
 texture = ExtResource("4_uah1q")
 
-[node name="RestartButton" type="TextureButton" parent="." unique_id=839438994 groups=["Unpausable"]]
-z_index = 1
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 803.0
-offset_top = 251.0
-offset_right = 941.0
-offset_bottom = 383.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("6_803yc")
-texture_pressed = ExtResource("6_803yc")
-texture_hover = ExtResource("6_803yc")
-texture_disabled = ExtResource("6_803yc")
-texture_focused = ExtResource("6_803yc")
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Hover" type="ColorRect" parent="RestartButton" unique_id=1439713167]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.00724638
-anchor_right = -0.00724638
-offset_left = 26.0
-offset_top = 24.9999
-offset_right = 108.0
-offset_bottom = 103.0
-mouse_filter = 1
-color = Color(1, 1, 1, 0.427451)
-script = ExtResource("7_1wbrc")
-metadata/_edit_use_anchors_ = true
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=525831084]
 position = Vector2(576, 324)
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="mouse_entered" from="RestartButton/Hover" to="RestartButton/Hover" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="RestartButton/Hover" to="RestartButton/Hover" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/RestartButton/Hover" to="CanvasLayer/Control/RestartButton/Hover" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/RestartButton/Hover" to="CanvasLayer/Control/RestartButton/Hover" method="_on_mouse_exited"]

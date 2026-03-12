@@ -308,7 +308,7 @@ _data = {
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lhhwt"]
 light_mode = 1
 
-[node name="World" type="Node2D" unique_id=1692882351]
+[node name="World" type="Node2D" unique_id=1692882351 groups=["AlternativeMusic"]]
 script = ExtResource("1_aipr0")
 metadata/_edit_horizontal_guides_ = [-365.0]
 

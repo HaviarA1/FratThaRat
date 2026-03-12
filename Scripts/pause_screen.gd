@@ -13,8 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if get_tree().get_first_node_in_group("Unpausable") != null:
-		if unpausable_scenes.find(get_tree().get_first_node_in_group("Unpausable").scene_file_path) != -1:
-			playing = false
+		playing = false
 	else:
 		playing = true
 		
@@ -24,21 +23,24 @@ func _process(delta: float) -> void:
 			paused = false
 			get_tree().paused = false
 			Music.audio_stream_player.volume_linear *= 5
+			Music.audio_stream_player_2.volume_linear *= 5
 		elif not paused and Input.is_action_just_pressed("Pause"):
 			pause_screen.show()
 			paused = true
 			get_tree().paused = true
 			Music.audio_stream_player.volume_linear /= 5
-
+			Music.audio_stream_player_2.volume_linear /= 5
 func _on_resume_pressed() -> void:
-	Music.audio_stream_player.volume_db = -10
+	Music.audio_stream_player.volume_linear *= 5
+	Music.audio_stream_player_2.volume_linear *= 5
 	pause_screen.hide()
 	get_tree().paused = false
 
 
 func _on_menu_pressed() -> void:
 	GlobalTimer.reset_timer()
-	Music.audio_stream_player.volume_db = -10
+	Music.audio_stream_player.volume_linear *= 5
+	Music.audio_stream_player_2.volume_linear *= 5
 	pause_screen.hide()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

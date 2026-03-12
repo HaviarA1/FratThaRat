@@ -13,5 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_restart_button_pressed() -> void:
+	animation_player.play("darken")
+	await get_tree().create_timer(2).timeout
 	GlobalTimer.hide()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

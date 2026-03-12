@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx1b42qehqj4v" path="res://Scripts/music.gd" id="1_qxpp0"]
 [ext_resource type="AudioStream" uid="uid://3ov0lw20o4ns" path="res://Assets/Audio/song1_v2.mp3" id="2_qxpp0"]
 [ext_resource type="AudioStream" uid="uid://nb70be26jwxf" path="res://Assets/Audio/crump.mp3" id="3_8dy0s"]
+[ext_resource type="AudioStream" uid="uid://ctoxk80v8drwy" path="res://Assets/Audio/song2.mp3" id="3_ckt5d"]
 [ext_resource type="AudioStream" uid="uid://c6fmo1jjsvjtq" path="res://Assets/Audio/Gas1.mp3" id="4_ckt5d"]
 [ext_resource type="AudioStream" uid="uid://cxfqf0vmymbj6" path="res://Assets/Audio/gas2.mp3" id="5_c63kx"]
 [ext_resource type="AudioStream" uid="uid://hmil1t8pujav" path="res://Assets/Audio/Scream.mp3" id="6_dhgrt"]
@@ -48,12 +49,14 @@ process_mode = 3
 stream = ExtResource("2_qxpp0")
 volume_db = -10.0
 autoplay = true
+bus = &"Mute"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=332358152 groups=["Music"]]
 process_mode = 3
-stream = ExtResource("2_qxpp0")
-volume_db = -80.0
+stream = ExtResource("3_ckt5d")
+volume_db = -10.0
 autoplay = true
+bus = &"Mute"
 
 [node name="Crump" type="AudioStreamPlayer" parent="." unique_id=521021672]
 stream = ExtResource("3_8dy0s")
