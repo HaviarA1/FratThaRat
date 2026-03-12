@@ -7,6 +7,9 @@ extends Node2D
 @onready var challenges_animation_player: AnimationPlayer = $ChallengesAnimationPlayer
 
 
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sound_slider.value = Music.sound_volume

@@ -91,7 +91,7 @@ _data = {
 &"lighten": SubResource("Animation_wnn2o")
 }
 
-[node name="Credits" type="Node2D" unique_id=560112792 groups=["AlternativeMusic"]]
+[node name="Credits" type="Node2D" unique_id=560112792 groups=["AlternativeMusic", "Unpausable"]]
 script = ExtResource("1_7emq5")
 
 [node name="Parallax4" type="Sprite2D" parent="." unique_id=1848950075]

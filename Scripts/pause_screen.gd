@@ -22,14 +22,12 @@ func _process(delta: float) -> void:
 			pause_screen.hide()
 			paused = false
 			get_tree().paused = false
-			Music.audio_stream_player.volume_linear *= 5
-			Music.audio_stream_player_2.volume_linear *= 5
+			Music.unpause()
 		elif not paused and Input.is_action_just_pressed("Pause"):
 			pause_screen.show()
 			paused = true
 			get_tree().paused = true
-			Music.audio_stream_player.volume_linear /= 5
-			Music.audio_stream_player_2.volume_linear /= 5
+			Music.pause()
 func _on_resume_pressed() -> void:
 	Music.audio_stream_player.volume_linear *= 5
 	Music.audio_stream_player_2.volume_linear *= 5
