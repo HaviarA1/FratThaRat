@@ -6,10 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dxajbfxj6m2pw" path="res://Assets/Textures/parallax2.png" id="2_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://dagy4q3fmq241" path="res://Assets/Textures/parallax1.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://cfs5pyuv2rrum" path="res://Assets/Textures/FratThaRat.png" id="4_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://0kfmqsd8n7yw" path="res://Assets/Textures/cheese/big_cheese/big_cheese.png" id="6_6dk6o"]
 [ext_resource type="Texture2D" uid="uid://qgtbe84uyhh0" path="res://Assets/Textures/UI/settings.png" id="7_5egv6"]
 [ext_resource type="Texture2D" uid="uid://cd0qh5erjxlfn" path="res://Assets/Textures/cheese/cheese2/cheese2.png" id="7_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://j32ac1yh5s87" path="res://Assets/Textures/cheese/big_cheese/big_cheese_piece.png" id="7_jr6u5"]
+[ext_resource type="Texture2D" uid="uid://de3iv13aysc6g" path="res://Assets/Textures/cheese/cheese1/cheese1.png" id="8_6m47u"]
 [ext_resource type="Texture2D" uid="uid://bh0bpw6e85qew" path="res://Assets/Textures/UI/setting_background.png" id="8_t1dhk"]
 [ext_resource type="FontFile" uid="uid://bx4ftiarn45v2" path="res://Assets/Minecraft.ttf" id="9_5egv6"]
+[ext_resource type="Texture2D" uid="uid://bufvajcxou21e" path="res://Assets/Textures/cheese/hermelin/hermelin.png" id="9_84iac"]
 [ext_resource type="Texture2D" uid="uid://dldckqlgqypa4" path="res://Assets/Textures/UI/challenges.png" id="9_ujyyl"]
 [ext_resource type="Texture2D" uid="uid://crpeqhpdoqa7g" path="res://Assets/Textures/UI/slider_1.png" id="10_vtepg"]
 [ext_resource type="Texture2D" uid="uid://7ql2dlsdkkco" path="res://Assets/Textures/UI/slider_2.png" id="11_8dnnj"]
@@ -170,23 +174,83 @@ position = Vector2(587, 142)
 scale = Vector2(4, 4)
 texture = ExtResource("4_ce3w2")
 
-[node name="Cheese2" type="Sprite2D" parent="." unique_id=1788156724]
+[node name="Cheese7" type="Sprite2D" parent="." unique_id=402899625]
 texture_filter = 1
-position = Vector2(253, 517)
-scale = Vector2(8.15625, 6.75)
+position = Vector2(225, 588)
+scale = Vector2(2, 2)
 texture = ExtResource("7_cp0ys")
 
-[node name="Cheese3" type="Sprite2D" parent="." unique_id=1005396468]
+[node name="Cheese8" type="Sprite2D" parent="." unique_id=291078579]
 texture_filter = 1
-position = Vector2(764, 490)
-scale = Vector2(9.90625, 8.8125)
+position = Vector2(870, 300)
+scale = Vector2(2, 2)
 texture = ExtResource("7_cp0ys")
 
-[node name="Cheese4" type="Sprite2D" parent="." unique_id=981136177]
+[node name="Cheese9" type="Sprite2D" parent="." unique_id=771186914]
 texture_filter = 1
-position = Vector2(1085, 498)
-scale = Vector2(8.65625, 7.40625)
+position = Vector2(784, 433)
+scale = Vector2(2, 2)
 texture = ExtResource("7_cp0ys")
+
+[node name="BigCheese" type="Sprite2D" parent="." unique_id=1314750133]
+texture_filter = 1
+position = Vector2(1125, 595)
+scale = Vector2(2, 2)
+texture = ExtResource("6_6dk6o")
+
+[node name="BigCheesePiece" type="Sprite2D" parent="." unique_id=80124045]
+texture_filter = 1
+position = Vector2(250, 645)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jr6u5")
+
+[node name="Cheese5" type="Sprite2D" parent="." unique_id=294311968]
+texture_filter = 1
+position = Vector2(906, 396)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6m47u")
+
+[node name="Cheese4" type="Sprite2D" parent="." unique_id=155590758]
+texture_filter = 1
+position = Vector2(358, 380)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6m47u")
+
+[node name="Cheese3" type="Sprite2D" parent="." unique_id=583181758]
+texture_filter = 1
+position = Vector2(348, 508)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6m47u")
+
+[node name="Cheese2" type="Sprite2D" parent="." unique_id=1231555443]
+texture_filter = 1
+position = Vector2(161, 422)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6m47u")
+
+[node name="Cheese1" type="Sprite2D" parent="." unique_id=1063612028]
+texture_filter = 1
+position = Vector2(835, 510)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6m47u")
+
+[node name="Cheese6" type="Sprite2D" parent="." unique_id=1623346904]
+texture_filter = 1
+position = Vector2(265, 442)
+scale = Vector2(2, 2)
+texture = ExtResource("7_cp0ys")
+
+[node name="Hermelin" type="Sprite2D" parent="." unique_id=240834023]
+texture_filter = 1
+position = Vector2(487, 602)
+scale = Vector2(2, 2)
+texture = ExtResource("9_84iac")
+
+[node name="Hermelin2" type="Sprite2D" parent="." unique_id=798364533]
+texture_filter = 1
+position = Vector2(77, 531)
+scale = Vector2(2, 2)
+texture = ExtResource("9_84iac")
 
 [node name="Control" type="Control" parent="." unique_id=2063412550]
 layout_mode = 3

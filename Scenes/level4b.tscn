@@ -350,7 +350,6 @@ position = Vector2(685, -102)
 next_level = "res://Scenes/level5b.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1063310069]
-visible = false
 
 [node name="RestartButton3" type="TextureButton" parent="CanvasLayer" unique_id=1661129830]
 z_index = 1

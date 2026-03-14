@@ -17,6 +17,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	Music.paused = false
+	
 	if music_slider.changed:
 		Music.set_music_volume(music_slider.value)
 	if sound_slider.changed:

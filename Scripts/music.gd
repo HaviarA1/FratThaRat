@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 			alternative = false
 		else:
 			audio_stream_player.volume_linear = 0
-			audio_stream_player_2.volume_linear = music_volume
+			audio_stream_player_2.volume_linear = music_volume / 1.5
 			alternative = true
 		
 
